@@ -6,6 +6,7 @@ import { connectSmartContract } from "../utils/smart-contract/functions";
 import StatusContext from "../../store/status-context";
 import LoadingContext from "../../store/loading-context";
 import AuthModalContext from "../../store/authModal-context";
+import ProtectedRoutes from "../auth/ProtectedRoutes";
 import "../../styles/globals.css";
 import Layout from "../layout/WrapLayout/Layout";
 import ScrollToPageTop from "../utils/ScrollToPageTop";
@@ -44,10 +45,12 @@ function App({ Component, pageProps, router }) {
 					<LoadingContext.Provider value={[isLoading, setLoading]}>
 						<AuthModalContext.Provider value={[authModalOpen, setAuthModalOpen]}>
 							<StatusContext.Provider value={[error, success, setSuccess, setError]}>
-								<Layout>
-									<ScrollToPageTop />
-									<Component {...pageProps} />
-								</Layout>
+								<ProtectedRoutes router={router}>
+									<Layout>
+										<ScrollToPageTop />
+										<Component {...pageProps} />
+									</Layout>
+								</ProtectedRoutes>
 							</StatusContext.Provider>
 						</AuthModalContext.Provider>
 					</LoadingContext.Provider>

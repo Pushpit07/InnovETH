@@ -37,51 +37,11 @@ export default function AuthModal({ isOpen = "", onClose = "" }) {
 		onClose();
 	};
 
-	/**
-	 * 1) Connect to a Evm
-	 * 2) Request message to sign using the Moralis Auth Api of moralis (handled on server)
-	 * 3) Login via parse using the signed message (verification handled on server via Moralis Auth Api)
-	 */
-	const handleMetamaskAuth = async () => {
+	const metamaskLogin = async () => {
 		setLoading(true);
-		try {
+		if (!isAuthenticated) {
 			await addPolygonNetwork();
-			// Enable web3 to get user address and chain
-			if (!isWeb3Enabled) {
-				await enableWeb3({ provider: "metamask" });
-			}
-			const { account, chainId } = Moralis;
-
-			if (!account) {
-				setLoading(false);
-				setError({
-					title: "Connection failed",
-					message: "No connected account was found",
-					showErrorBox: true,
-				});
-				return;
-			}
-			if (!chainId) {
-				setLoading(false);
-				setError({
-					title: "Connection failed",
-					message: "No connected chain was found",
-					showErrorBox: true,
-				});
-				return;
-			}
-
-			// Get message to sign from the auth api
-			const { message } = await Moralis.Cloud.run("requestMessage", {
-				address: account,
-				chain: parseInt(chainId, 16),
-				networkType: "evm",
-			});
-
-			// Authenticate and login via parse
-			await authenticate({
-				signingMessage: message,
-			})
+			await authenticate({ signingMessage: "Innovise Authentication" })
 				.then(async function (user) {
 					if (user) {
 						await fetch("/api/auth/login", {
@@ -92,6 +52,7 @@ export default function AuthModal({ isOpen = "", onClose = "" }) {
 							body: JSON.stringify({ currentUser: user }),
 						});
 						closeModal();
+						if (router.pathname === "/") router.push("/innovation-hub");
 					}
 					setLoading(false);
 				})
@@ -99,53 +60,18 @@ export default function AuthModal({ isOpen = "", onClose = "" }) {
 					console.log("Metamask authentication error:", error);
 					setLoading(false);
 				});
-		} catch (error) {
-			setLoading(false);
-			console.error(error);
 		}
 		setLoading(false);
 	};
 
-	const handleWalletconnectAuth = async () => {
+	const walletconnectLogin = async () => {
 		setLoading(true);
-		try {
-			// Enable web3 to get user address and chain
-			if (!isWeb3Enabled) {
-				await enableWeb3({ provider: "walletconnect" });
-			}
-			const { account, chainId } = Moralis;
 
-			if (!account) {
-				setLoading(false);
-				setError({
-					title: "Connection failed",
-					message: "No connected account was found",
-					showErrorBox: true,
-				});
-				return;
-			}
-			if (!chainId) {
-				setLoading(false);
-				setError({
-					title: "Connection failed",
-					message: "No connected chain was found",
-					showErrorBox: true,
-				});
-				return;
-			}
-
-			// Get message to sign from the auth api
-			const { message } = await Moralis.Cloud.run("requestMessage", {
-				address: account,
-				chain: parseInt(chainId, 16),
-				networkType: "evm",
-			});
-
-			// Authenticate and login via parse
+		if (!isAuthenticated) {
 			await authenticate({
 				provider: "walletconnect",
-				chainId: process.env.NEXT_PUBLIC_BLOCKCHAIN_NETWORK_ID === "137" ? 137 : "",
-				signingMessage: message,
+				chainId: process.env.NEXT_PUBLIC_BLOCKCHAIN_NETWORK_ID === 137 ? 137 : "",
+				signingMessage: "Innovise Authentication",
 			})
 				.then(async function (user) {
 					if (user) {
@@ -157,6 +83,7 @@ export default function AuthModal({ isOpen = "", onClose = "" }) {
 							body: JSON.stringify({ currentUser: user }),
 						});
 						closeModal();
+						if (router.pathname === "/") router.push("/innovation-hub");
 					}
 					setLoading(false);
 				})
@@ -164,10 +91,8 @@ export default function AuthModal({ isOpen = "", onClose = "" }) {
 					console.log("WalletConnect authentication error:", error);
 					setLoading(false);
 				});
-		} catch (error) {
-			setLoading(false);
-			console.error(error);
 		}
+
 		setLoading(false);
 	};
 
@@ -210,8 +135,8 @@ export default function AuthModal({ isOpen = "", onClose = "" }) {
 
 							<div className="w-full flex flex-col sm:flex-row sm:space-x-4 mt-4 pr-4">
 								<div className="sm:w-2/5">
-									<div className="text-xl font-semibold font-primary">Jump into Musixverse!</div>
-									<p className="text-sm mt-4 pr-14">Select your wallet from the options to transfer funds.</p>
+									<div className="text-xl font-semibold font-primary">Jump into Innovise!</div>
+									<p className="text-sm mt-4 pr-14">Select your wallet from the available options</p>
 									<p className="text-[10px] text-gray-400 mt-8 sm:mt-36 pr-14">
 										Connecting your wallet is the simplest way to log in to the world of Web3!
 									</p>
@@ -220,7 +145,7 @@ export default function AuthModal({ isOpen = "", onClose = "" }) {
 									<div className="text-sm">Available Wallets</div>
 									<div className="mt-6 w-full space-y-4">
 										<button
-											onClick={() => handleMetamaskAuth()}
+											onClick={() => metamaskLogin()}
 											className="w-full bg-light-200 hover:bg-light-300 rounded-lg flex items-center p-4 text-sm"
 										>
 											<Image src="/assets/metamask.png" alt="Metamask Logo" width="40" height="40" />
@@ -232,7 +157,7 @@ export default function AuthModal({ isOpen = "", onClose = "" }) {
 											</div>
 										</button>
 										<button
-											onClick={() => handleWalletconnectAuth()}
+											onClick={() => walletconnectLogin()}
 											className="w-full bg-light-200 hover:bg-light-300 rounded-lg flex items-center p-4 text-sm"
 										>
 											<Image src="/assets/walletconnect.png" alt="WalletConnect Logo" width="40" height="40" />
