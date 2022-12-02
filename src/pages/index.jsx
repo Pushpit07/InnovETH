@@ -1,6 +1,5 @@
 import Head from "next/head";
 import { title_main_page, meta_description } from "../constants";
-import CTA from "../components/HomePage/CTA";
 
 function Home() {
 	return (
@@ -11,9 +10,8 @@ function Home() {
 			</Head>
 
 			<div className="h-screen w-screen relative flex flex-col items-center bg-light-200">
-				<h1 className="mt-40 mb-4 text-5xl font-semibold text-center font-primary">Innowise</h1>
+				<h1 className="mt-40 mb-4 text-5xl font-semibold text-center font-primary">Innovise</h1>
 				<p>Innovate & Improvise</p>
-				<CTA />
 			</div>
 		</>
 	);

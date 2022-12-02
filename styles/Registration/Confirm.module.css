@@ -1,0 +1,11 @@
+.register {
+    @apply flex items-center justify-center pt-24 pb-4;
+}
+
+.register__container {
+    @apply px-responsive w-full max-w-[1920px] flex h-[90vh] mx-4 rounded-xl bg-light-300;
+}
+
+.confirm__container {
+    @apply flex flex-col justify-center items-center w-full;
+}

@@ -21,7 +21,9 @@
 		"next-pwa": "^5.4.4",
 		"next-themes": "^0.0.15",
 		"react": "^17.0.2",
+		"react-confetti": "^6.1.0",
 		"react-dom": "17.0.2",
+		"react-image-crop": "^10.0.9",
 		"react-moralis": "^1.4.0",
 		"styled-components": "^5.3.5",
 		"web3": "^1.7.4"

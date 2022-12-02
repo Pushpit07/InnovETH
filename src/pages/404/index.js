@@ -6,7 +6,7 @@ const ErrorPage = ({}) => {
 	return (
 		<>
 			<Head>
-				<title>Musixverse Admin Console | 404</title>
+				<title>Innovise | 404</title>
 				<meta name="description" content={meta_description} />
 				<link rel="icon" href="/favicon.ico" />
 			</Head>
