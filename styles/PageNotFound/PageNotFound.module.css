@@ -1,0 +1,135 @@
+.page_not_found_container {
+	@apply w-full h-[100vh] flex flex-col justify-center items-center;
+}
+
+.wrapper {
+	@apply w-[60%] p-20 bg-light-300 font-primary rounded-xl font-semibold flex flex-col justify-center items-center m-0 absolute left-[50%] top-[55%] text-center;
+	-ms-transform: translate(-50%, -50%);
+	transform: translate(-50%, -50%);
+	/* padding: 70px 40px 50px 40px; */
+	font-size: 1.2em;
+}
+
+@media (max-width: 600px) {
+	.wrapper.wrapper.wrapper {
+		@apply w-[90%];
+	}
+}
+
+@media (max-width: 1100px) {
+	.wrapper.wrapper {
+		@apply w-[80%];
+	}
+}
+
+.page-wrapper {
+	@apply w-[246px] relative;
+}
+
+.disk-wrapper {
+	@apply w-[200px] h-[200px] overflow-hidden relative rounded-full flex justify-center items-center;
+}
+
+.disk-wrapper .light-left,
+.disk-wrapper .light-right {
+	@apply w-[25%] h-[30%] absolute bg-[#615951] z-20;
+}
+
+.disk-wrapper .light-left {
+	@apply top-5 left-5 -rotate-45;
+	-webkit-clip-path: polygon(0 0, 100% 0, 66% 100%, 40% 100%);
+	clip-path: polygon(0 0, 100% 0, 66% 100%, 40% 100%);
+}
+.disk-wrapper .light-right {
+	@apply right-5 bottom-5 -rotate-45;
+	-webkit-clip-path: polygon(40% 0, 66% 0, 100% 100%, 0 100%);
+	clip-path: polygon(40% 0, 66% 0, 100% 100%, 0 100%);
+}
+
+.disk {
+	@apply w-[200px] h-[200px] bg-[#050608] rounded-full relative flex justify-center items-center;
+	-webkit-animation: circle 2.5s infinite linear;
+	animation: circle 2.5s infinite linear;
+}
+
+.disk .half-circle-top {
+	/* 100px of height + 10px of border */
+	/* 100px of height + 10px of border */
+	@apply top-[30px] border-2 border-solid border-[#615951] border-b-0 rounded-tl-[72px] rounded-tr-[72px];
+}
+
+.disk .half-circle-bottom {
+	@apply bottom-[30px] border-2 border-solid border-[#61595121] border-t-0 rounded-bl-[72px] rounded-br-[72px];
+	/* 100px of height + 10px of border */
+	/* 100px of height + 10px of border */
+}
+
+.disk .half-circle-bottom,
+.disk .half-circle-top {
+	@apply w-[140px] h-[70px] absolute bg-[#050608];
+}
+
+.disk .separator {
+	@apply w-full h-[58px] top-[36%] absolute bg-[#050608];
+}
+
+.disk .inner-circle {
+	@apply w-[90px] h-[90px] bg-primary-100 rounded-full flex justify-center items-center;
+	z-index: 2;
+}
+
+.disk .inner-circle span {
+	@apply font-semibold text-[25px] text-white;
+}
+
+.disk .inner-circle .dot {
+	@apply w-[10px] h-[10px] bg-black rounded-full m-[5px];
+}
+
+.needle-wrapper {
+	@apply absolute right-0;
+}
+
+.needle-wrapper .base {
+	@apply w-[30px] h-[30px] bg-[#d2ccc6] relative rounded-[3px] flex justify-center items-center;
+}
+
+.needle-wrapper .base:after {
+	@apply w-[20px] h-[20px] bg-[#615951] rounded-full;
+	content: "";
+}
+
+.needle-wrapper .lines {
+	@apply flex flex-col justify-center items-center relative -top-[16px];
+	z-index: 4;
+}
+
+.needle-wrapper .lines div {
+	@apply bg-[#d2ccc6] rounded-[3px];
+}
+
+.needle-wrapper .lines .vertical {
+	width: 6px;
+	height: 50px;
+	@apply w-[6px] h-[50px];
+}
+
+.needle-wrapper .lines .horizontal {
+	@apply w-[66px] h-[6px] absolute -left-[46px] -bottom-[13px] -rotate-[20deg];
+}
+
+@-webkit-keyframes circle {
+	100% {
+		transform: rotate(360deg);
+	}
+}
+
+@keyframes circle {
+	100% {
+		transform: rotate(360deg);
+	}
+}
+
+.error {
+	@apply mx-[30px] mt-5;
+}

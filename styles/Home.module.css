@@ -1,0 +1,15 @@
+.home__container {
+	@apply flex h-screen justify-center items-center text-center;
+}
+
+.home__main {
+	@apply m-auto;
+}
+
+.home__title {
+	@apply text-6xl font-semibold mb-2;
+}
+
+.home__description {
+	@apply text-lg;
+}
