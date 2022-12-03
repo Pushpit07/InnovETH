@@ -335,3 +335,29 @@ button.tooltip-button:active {
 [data-tooltip-theme="glass"]:before {
 	@apply dark:bg-dark-600/80 bg-light-100/10;
 }
+
+
+/* HERO */
+
+.typed-out{
+	overflow: hidden;
+	white-space: nowrap;
+	font-size: 1.6rem;
+	width: 0%;
+}
+  
+  #c1:checked ~ #check1, #c2:checked ~ #check2, #c3:checked ~ #check3{
+	animation: typing 5000ms forwards;
+  }
+  
+  #c1:checked ~ #check2, #c1:checked ~ #check3,
+  #c2:checked ~ #check1, #c2:checked ~ #check3,
+  #c3:checked ~ #check2, #c3:checked ~ #check1{
+	visibility: hidden;
+  }
+  
+  @keyframes typing {
+	0% { width: 0%; }
+	50%{  width: 100%; }
+	100% { width: 0%; }
+  }

@@ -3,7 +3,7 @@
 }
 
 .register__container{
-    @apply px-4 sm:px-responsive w-full max-w-[1920px] flex mx-4 justify-center xl:justify-between rounded-xl bg-light-300 relative;
+    @apply px-4 sm:px-responsive w-full max-w-[1920px] flex mx-4 justify-center xl:justify-between rounded-xl bg-[#E8E8FF] relative;
 }
 
 .register__container--left-section{
@@ -20,10 +20,10 @@
 }
 
 .register__container--right-section_W{
-    @apply mt-80 xl:ml-auto xl:mt-6 mb-6 p-10 sm:p-16 rounded-xl relative z-[2];
+    @apply mt-80 xl:ml-auto xl:mt-6 mb-6 p-10 sm:p-16 rounded-xl relative z-[2] bg-white;
     /*Frosted glass effect */
-    backdrop-filter: blur(10px);
-    background: rgba(255, 255, 255,0.6);
+    /* backdrop-filter: blur(10px);
+    background: rgba(255, 255, 255,0.6); */
 }
 
 .register__container--right-section_B{

@@ -20,7 +20,7 @@ export default function NoNfts({ username, favouritesSection = false }) {
 
 				{/* If artist then render create nft other wise buy nft */}
 				{user && username === user.attributes.username && !favouritesSection ? (
-					<Link href={"/create-post"} passHref>
+					<Link href={"/create-proposal"} passHref>
 						<button className="py-2 font-medium text-center px-14 hover:bg-primary-600 bg-primary-500 rounded-3xl text-light-100">
 							Create Proposal
 						</button>
