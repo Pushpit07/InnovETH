@@ -99,7 +99,7 @@ async function createProposal(metadataHash) {
 			functionName: "createProposal",
 			abi: INNOVETH_FACET_CONTRACT_ABI,
 			params: {
-				metadataHash,
+				URIHash: metadataHash,
 			},
 		};
 
@@ -117,7 +117,7 @@ async function createProposal(metadataHash) {
 			functionName: "createProposal",
 			abi: INNOVETH_FACET_CONTRACT_ABI,
 			params: {
-				metadataHash,
+				URIHash: metadataHash,
 			},
 		};
 
@@ -146,7 +146,7 @@ async function joinDiscussion(proposalId) {
 			functionName: "joinDiscussion",
 			abi: INNOVETH_FACET_CONTRACT_ABI,
 			params: {
-				proposalId,
+				proposalId: proposalId,
 			},
 		};
 
@@ -164,7 +164,7 @@ async function joinDiscussion(proposalId) {
 			functionName: "joinDiscussion",
 			abi: INNOVETH_FACET_CONTRACT_ABI,
 			params: {
-				proposalId,
+				proposalId: proposalId,
 			},
 		};
 

@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useContext } from "react";
 import dynamic from "next/dynamic";
 import ReactMarkdown from "react-markdown";
 import "react-markdown-editor-lite/lib/index.css";
@@ -6,12 +6,13 @@ const MdEditor = dynamic(() => import("react-markdown-editor-lite"), {
 	ssr: false,
 });
 import { Web3Storage } from "web3.storage";
+import LoadingContext from "../../../store/loading-context";
+import { createProposal } from "../../utils/smart-contract/functions";
 
 export default function CreatePostPage() {
-	const [title, setTitle] = useState("Test title");
-	const [description, setDescription] = useState(
-		"Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum."
-	);
+	const [title, setTitle] = useState("");
+	const [description, setDescription] = useState("");
+	const [, setLoading] = useContext(LoadingContext);
 
 	function onImageUpload(file) {
 		return new Promise((resolve) => {
@@ -31,8 +32,9 @@ export default function CreatePostPage() {
 
 	function makeFileObjects() {
 		const obj = {
-			title: title,
+			name: title,
 			description: description,
+			image: "https://ipfs.moralis.io:2053/ipfs/QmetsQ5gRrGb8vgySJPB1vNeaQVBMWbqhr4MJ9THg5rFyM",
 		};
 		const blob = new Blob([JSON.stringify(obj)], { type: "application/json" });
 
@@ -45,7 +47,6 @@ export default function CreatePostPage() {
 		const cid = await client.put(makeFileObjects());
 		console.log("stored file with cid:", cid);
 		console.log("stored file with link:", `https://${cid}.ipfs.w3s.link/proposal.json`);
-
 		return cid;
 	}
 
@@ -55,7 +56,10 @@ export default function CreatePostPage() {
 				<form
 					onSubmit={async (e) => {
 						e.preventDefault();
-						storeFile();
+						setLoading(true);
+						const cid = await storeFile();
+						await createProposal(cid);
+						setLoading(false);
 					}}
 					className="flex flex-col w-full"
 				>
@@ -78,6 +82,7 @@ export default function CreatePostPage() {
 						imageAccept=".jpg,.png,.jpeg,.svg,.hevc"
 						onImageUpload={onImageUpload}
 						renderHTML={(text) => {
+							setDescription(text);
 							// Call set markdown in moralis here and send text
 							return <ReactMarkdown>{text}</ReactMarkdown>;
 						}}
