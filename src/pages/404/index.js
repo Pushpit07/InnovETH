@@ -6,7 +6,7 @@ const ErrorPage = ({}) => {
 	return (
 		<>
 			<Head>
-				<title>Innovise | 404</title>
+				<title>InnovETH | 404</title>
 				<meta name="description" content={meta_description} />
 				<link rel="icon" href="/favicon.ico" />
 			</Head>

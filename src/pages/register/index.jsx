@@ -23,7 +23,7 @@ const Register_Page = () => {
 	return (
 		<>
 			<Head>
-				<title>Innovise | Registration</title>
+				<title>InnovETH | Registration</title>
 				<meta name="description" content={meta_description} />
 				<link rel="icon" href="/favicon.ico" />
 			</Head>

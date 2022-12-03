@@ -10,10 +10,10 @@ function Home() {
 				<meta name="description" content={meta_description} />
 			</Head>
 			<HeroSection/>
-			{/* <div className="relative flex flex-col items-center w-screen h-screen bg-light-200">
-				<h1 className="mt-40 mb-4 text-5xl font-semibold text-center font-primary">Innovise</h1>
+			<div className="relative flex flex-col items-center w-screen h-screen bg-light-200">
+				<h1 className="mt-40 mb-4 text-5xl font-semibold text-center font-primary">InnovETH</h1>
 				<p>Innovate & Improvise</p>
-			</div> */}
+			</div>
 		</>
 	);
 }

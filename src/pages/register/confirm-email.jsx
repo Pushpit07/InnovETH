@@ -23,7 +23,7 @@ const Confirm_Page = () => {
 	return (
 		<>
 			<Head>
-				<title>Innovise | Confirm Email</title>
+				<title>InnovETH | Confirm Email</title>
 				<meta name="description" content={meta_description} />
 				<link rel="icon" href="/favicon.ico" />
 			</Head>

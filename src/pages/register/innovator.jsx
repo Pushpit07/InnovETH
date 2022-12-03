@@ -23,7 +23,7 @@ const Innovator_Page = () => {
 	return (
 		<>
 			<Head>
-				<title>Innovise | Innovator Registration</title>
+				<title>InnovETH | Innovator Registration</title>
 				<meta name="description" content={meta_description} />
 				<link rel="icon" href="/favicon.ico" />
 			</Head>

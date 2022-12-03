@@ -41,7 +41,7 @@ export default function AuthModal({ isOpen = "", onClose = "" }) {
 		setLoading(true);
 		if (!isAuthenticated) {
 			await addPolygonNetwork();
-			await authenticate({ signingMessage: "Innovise Authentication" })
+			await authenticate({ signingMessage: "InnovETH Authentication" })
 				.then(async function (user) {
 					if (user) {
 						await fetch("/api/auth/login", {
@@ -71,7 +71,7 @@ export default function AuthModal({ isOpen = "", onClose = "" }) {
 			await authenticate({
 				provider: "walletconnect",
 				chainId: process.env.NEXT_PUBLIC_BLOCKCHAIN_NETWORK_ID === 137 ? 137 : "",
-				signingMessage: "Innovise Authentication",
+				signingMessage: "InnovETH Authentication",
 			})
 				.then(async function (user) {
 					if (user) {
@@ -135,7 +135,7 @@ export default function AuthModal({ isOpen = "", onClose = "" }) {
 
 							<div className="w-full flex flex-col sm:flex-row sm:space-x-4 mt-4 pr-4">
 								<div className="sm:w-2/5">
-									<div className="text-xl font-semibold font-primary">Jump into Innovise!</div>
+									<div className="text-xl font-semibold font-primary">Jump into InnovETH!</div>
 									<p className="text-sm mt-4 pr-14">Select your wallet from the available options</p>
 									<p className="text-[10px] text-gray-400 mt-8 sm:mt-36 pr-14">
 										Connecting your wallet is the simplest way to log in to the world of Web3!

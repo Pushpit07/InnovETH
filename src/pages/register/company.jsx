@@ -23,7 +23,7 @@ const CompanyDetails = () => {
 	return (
 		<>
 			<Head>
-				<title>Innovise | Project Registration</title>
+				<title>InnovETH | Project Registration</title>
 				<meta name="description" content={meta_description} />
 				<link rel="icon" href="/favicon.ico" />
 			</Head>

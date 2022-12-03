@@ -53,7 +53,7 @@ const Admin = () => {
 						</div>
 						<div className="w-full flex flex-col sm:flex-row mt-4 pr-4 sm:space-x-10">
 							<div className="sm:w-2/5">
-								<div className="text-lg font-semibold font-primary">Innovise</div>
+								<div className="text-lg font-semibold font-primary">InnovETH</div>
 								<p className="text-sm mt-4 pr-14">Please enter login credentials</p>
 								<p className="text-[10px] text-gray-400 mt-8 sm:mt-36 pr-14">
 									Please contact&nbsp;

@@ -126,10 +126,10 @@ export default function InnovatorRegistration() {
 				<div className="lg:max-w-[30vw] pb-6 lg:pb-0">
 					<p className="mt-20 text-5xl font-tertiary max-w-[468px]">INNOVATOR SIGN UP</p>
 					<p className="text-[15px] font-secondary mt-4 max-w-none lg:max-w-[650px]">
-						Innovators bring Innovise to life. As a collector, you will be able to explore, buy, and trade NFTs of your favorite artists. Innovise
+						Innovators bring InnovETH to life. As a collector, you will be able to explore, buy, and trade NFTs of your favorite artists. InnovETH
 						will also provide you tools to establish unique connections with artists that you long for.
 					</p>
-					<p className="text-[15px] font-secondary mt-4">Thank you for choosing Innovise!</p>
+					<p className="text-[15px] font-secondary mt-4">Thank you for choosing InnovETH!</p>
 				</div>
 
 				{/* Right section */}
@@ -177,7 +177,7 @@ export default function InnovatorRegistration() {
 							<div className="flex items-center justify-start mb-2 space-x-3">
 								<input id="permissionCheckbox" type="checkbox" required />
 								<label htmlFor="permissionCheckbox" className="text-[16px] font-secondary font-bold cursor-pointer">
-									I agree with Innovise&apos;s&nbsp;
+									I agree with InnovETH&apos;s&nbsp;
 									<Link href="https://drive.google.com/file/d/1Av96OC67-zCfmFuQrAeGT7ruAPcft4Yl/view?usp=sharing" passHref={true}>
 										<a target="_blank" rel="noopener noreferrer" className="cursor-pointer hover:text-primary-600">
 											Terms of Services
@@ -186,7 +186,7 @@ export default function InnovatorRegistration() {
 								</label>
 							</div>
 							<p className="text-[13px] font-secondary lg:max-w-[468px] max-w-none">
-								By checking the box above, you agree with Innovise&apos;s Terms of Services and will abide by them.
+								By checking the box above, you agree with InnovETH&apos;s Terms of Services and will abide by them.
 							</p>
 						</div>
 

@@ -1068,7 +1068,7 @@ Moralis.Cloud.define("fetchProposals", async (request) => {
 	const pipeline = [];
 
 	const result = await query.aggregate(pipeline);
-	return result[0];
+	return result;
 });
 
 Moralis.Cloud.afterSave("ProposalCreated", async (request) => {
@@ -1087,6 +1087,7 @@ Moralis.Cloud.afterSave("ProposalCreated", async (request) => {
 
 				// success
 				proposal.set("name", metadata.name);
+				proposal.set("summary", metadata.summary);
 				proposal.set("description", metadata.description);
 				proposal.set("image", metadata.image);
 				await proposal.save();
@@ -1097,4 +1098,18 @@ Moralis.Cloud.afterSave("ProposalCreated", async (request) => {
 			}
 		);
 	}
+});
+
+Moralis.Cloud.define("fetchProposalDetails", async (request) => {
+	const query = new Moralis.Query("ProposalCreated", { useMasterKey: true });
+	const pipeline = [
+		{
+			match: {
+				proposalId: request.params.proposalId,
+			},
+		},
+	];
+
+	const result = await query.aggregate(pipeline);
+	return result[0];
 });

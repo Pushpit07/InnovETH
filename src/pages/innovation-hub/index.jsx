@@ -10,7 +10,6 @@ export async function getServerSideProps(context) {
 
 		const _proposals = await Moralis.Cloud.run("fetchProposals");
 		const proposals = JSON.parse(JSON.stringify(_proposals));
-		console.log(proposals);
 
 		return {
 			props: { proposals }, // will be passed to the page component as props
@@ -24,7 +23,7 @@ const InnovationHub = ({ proposals }) => {
 	return (
 		<>
 			<Head>
-				<title>Innovise | Innovation Hub</title>
+				<title>InnovETH | Innovation Hub</title>
 				<meta name="description" content={meta_description} />
 				<link rel="icon" href="/favicon.ico" />
 			</Head>
