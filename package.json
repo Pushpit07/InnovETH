@@ -8,6 +8,7 @@
 		"lint": "next lint"
 	},
 	"dependencies": {
+		"@biconomy/transak": "^0.0.4",
 		"@headlessui/react": "^1.6.6",
 		"@heroicons/react": "^1.0.5",
 		"@huddle01/huddle01-client": "^0.0.10",

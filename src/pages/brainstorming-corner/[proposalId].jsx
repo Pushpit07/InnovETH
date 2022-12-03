@@ -5,6 +5,7 @@ import { meta_description, PARSE_APP_ID, PARSE_SERVER_URL } from "../../constant
 import HuddleModal from "../../components/Corner/HuddleModal";
 import { useState } from "react";
 import { getHuddleClient } from "@huddle01/huddle01-client";
+import TransakOnRamp from "../../components/Proposal/TransakOnRamp";
 
 export async function getStaticProps(context) {
 	const { proposalId } = context.params;
@@ -35,7 +36,7 @@ export function getStaticPaths() {
 	};
 }
 
-export default function TrackInfo({ proposalId, proposalDetails }) {
+export default function Proposal({ proposalId, proposalDetails }) {
 	const { user } = useMoralis();
 	const [isHuddleModalOpen, setHuddleModalOpen] = useState(false);
 	const huddleClient = getHuddleClient(process.env.NEXT_PUBLIC_HUDDLE_API_KEY);
@@ -75,6 +76,7 @@ export default function TrackInfo({ proposalId, proposalDetails }) {
 					</div>
 					<div className="mt-10">{proposalDetails.description}</div>
 				</div>
+				<TransakOnRamp />
 			</div>
 
 			<HuddleModal isOpen={isHuddleModalOpen} setOpen={setHuddleModalOpen} />
