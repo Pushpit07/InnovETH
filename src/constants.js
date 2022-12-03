@@ -1,3 +1,7 @@
+import InnovETHFacet from "./utils/smart-contract/contracts/InnovETH/facets/InnovETHFacet.sol/InnovETHFacet.json";
+import InnovETHGettersFacet from "./utils/smart-contract/contracts/InnovETH/facets/InnovETHGettersFacet.sol/InnovETHGettersFacet.json";
+import InnovETHSettersFacet from "./utils/smart-contract/contracts/InnovETH/facets/InnovETHSettersFacet.sol/InnovETHSettersFacet.json";
+
 /**************************************************************************/
 /**********************    SEO Meta Descriptions   ************************/
 /**************************************************************************/
@@ -12,6 +16,13 @@ export const meta_description3 = "The NFT Marketplace for Musicians and Fans";
 /**************************************************************************/
 export const PARSE_APP_ID = process.env.NEXT_PUBLIC_PARSE_APP_ID;
 export const PARSE_SERVER_URL = process.env.NEXT_PUBLIC_PARSE_SERVER_URL;
+
+/**************************************************************************/
+/***********************    BLOCKCHAIN CONSTANTS  *************************/
+/**************************************************************************/
+export const INNOVETH_FACET_CONTRACT_ABI = InnovETHFacet.abi;
+export const INNOVETH_GETTERS_FACET_CONTRACT_ABI = InnovETHGettersFacet.abi;
+export const INNOVETH_SETTERS_FACET_CONTRACT_ABI = InnovETHSettersFacet.abi;
 
 export const defaultAvatarUrls = [
 	"https://ipfs.moralis.io:2053/ipfs/QmU7YuBCLpu5E5sgL3LW38KUvgDqX6qDERsxX4qtxd3U5v",

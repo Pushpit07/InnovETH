@@ -1,7 +1,7 @@
 import Web3 from "web3";
 import Moralis from "moralis";
 // Importing contract abi, address, and other variables
-import { MUSIXVERSE_FACET_CONTRACT_ABI, MUSIXVERSE_SETTERS_FACET_CONTRACT_ABI } from "../../constants";
+import { INNOVETH_FACET_CONTRACT_ABI, INNOVETH_GETTERS_FACET_CONTRACT_ABI, INNOVETH_SETTERS_FACET_CONTRACT_ABI } from "../../constants";
 
 var MUSIXVERSE;
 
@@ -79,7 +79,7 @@ async function connectSmartContract() {
 	window.web3 = new Web3(provider);
 
 	const web3 = window.web3;
-	MUSIXVERSE = await new web3.eth.Contract(MUSIXVERSE_FACET_CONTRACT_ABI, process.env.NEXT_PUBLIC_MXV_DIAMOND_ADDRESS);
+	MUSIXVERSE = await new web3.eth.Contract(INNOVETH_FACET_CONTRACT_ABI, process.env.NEXT_PUBLIC_INNOVETH_DIAMOND_ADDRESS);
 	console.log("Contract connected");
 
 	if (ethereum && (await ethereum.request({ method: "net_version" })) !== process.env.NEXT_PUBLIC_BLOCKCHAIN_NETWORK_ID.toString()) {
@@ -90,7 +90,103 @@ async function connectSmartContract() {
 	}
 }
 
+async function createProposal(metadataHash) {
+	if (window.localStorage.walletconnect) {
+		await Moralis.enableWeb3({ provider: "walletconnect" });
+
+		const sendOptions = {
+			contractAddress: process.env.NEXT_PUBLIC_INNOVETH_DIAMOND_ADDRESS,
+			functionName: "createProposal",
+			abi: INNOVETH_FACET_CONTRACT_ABI,
+			params: {
+				metadataHash,
+			},
+		};
+
+		const transaction = await Moralis.executeFunction(sendOptions);
+		// Wait until the transaction is confirmed
+		await transaction.wait();
+		return;
+	}
+
+	const { ethereum } = window;
+	const callerAddress = Moralis.User.current().attributes.ethAddress;
+	if (callerAddress === ethereum.selectedAddress) {
+		const sendOptions = {
+			contractAddress: process.env.NEXT_PUBLIC_INNOVETH_DIAMOND_ADDRESS,
+			functionName: "createProposal",
+			abi: INNOVETH_FACET_CONTRACT_ABI,
+			params: {
+				metadataHash,
+			},
+		};
+
+		const transaction = await Moralis.executeFunction(sendOptions);
+		// Wait until the transaction is confirmed
+		await transaction.wait();
+	} else {
+		window.ethereum.request({
+			method: "wallet_requestPermissions",
+			params: [
+				{
+					eth_accounts: {},
+				},
+			],
+		});
+		throw { title: "User is not connected to the same wallet", message: "Please connect to the same wallet as your Musixverse account." };
+	}
+}
+
+async function joinDiscussion(proposalId) {
+	if (window.localStorage.walletconnect) {
+		await Moralis.enableWeb3({ provider: "walletconnect" });
+
+		const sendOptions = {
+			contractAddress: process.env.NEXT_PUBLIC_INNOVETH_DIAMOND_ADDRESS,
+			functionName: "joinDiscussion",
+			abi: INNOVETH_FACET_CONTRACT_ABI,
+			params: {
+				proposalId,
+			},
+		};
+
+		const transaction = await Moralis.executeFunction(sendOptions);
+		// Wait until the transaction is confirmed
+		await transaction.wait();
+		return;
+	}
+
+	const { ethereum } = window;
+	const callerAddress = Moralis.User.current().attributes.ethAddress;
+	if (callerAddress === ethereum.selectedAddress) {
+		const sendOptions = {
+			contractAddress: process.env.NEXT_PUBLIC_INNOVETH_DIAMOND_ADDRESS,
+			functionName: "joinDiscussion",
+			abi: INNOVETH_FACET_CONTRACT_ABI,
+			params: {
+				proposalId,
+			},
+		};
+
+		const transaction = await Moralis.executeFunction(sendOptions);
+		// Wait until the transaction is confirmed
+		await transaction.wait();
+	} else {
+		window.ethereum.request({
+			method: "wallet_requestPermissions",
+			params: [
+				{
+					eth_accounts: {},
+				},
+			],
+		});
+		throw { title: "User is not connected to the same wallet", message: "Please connect to the same wallet as your Musixverse account." };
+	}
+}
+
 module.exports = {
 	addPolygonNetwork,
 	connectSmartContract,
+	createProposal,
+	joinDiscussion,
 };
