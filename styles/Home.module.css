@@ -13,26 +13,3 @@
 .home__description {
 	@apply text-lg;
 }
-
-.typed-out{
-	overflow: hidden;
-	white-space: nowrap;
-	font-size: 1.6rem;
-	width: 0;
-  }
-  
-  #c1:checked ~ #check1, #c2:checked ~ #check2, #c3:checked ~ #check3{
-	animation: typing 5000ms forwards;
-  }
-  
-  #c1:checked ~ #check2, #c1:checked ~ #check3,
-  #c2:checked ~ #check1, #c2:checked ~ #check3,
-  #c3:checked ~ #check2, #c3:checked ~ #check1{
-	display: none;
-  }
-  
-  @keyframes typing {
-	0% { width: 0%; }
-	50%{  width: 100%; }
-	100% { width: 0%; }
-  }
