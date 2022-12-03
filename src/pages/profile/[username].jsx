@@ -8,11 +8,11 @@ import Banner from "../../components/Profile/Banner";
 import Header from "../../components/Profile/Header";
 import Filter from "../../components/Profile/Filter";
 import NFTs from "../../components/Profile/NFTs";
-const FavouritesHeader = dynamic(() => import("../../components/Profile/FavouritesHeader"));
-const FavouriteNFTs = dynamic(() => import("../../components/Profile/FavouriteNFTs"));
+const BookMarkedHeader = dynamic(() => import("../../components/Profile/BookMarkedHeader"));
+const BookMarkedNFTs = dynamic(() => import("../../components/Profile/BookMarkedNFTs"));
 const ArtistBioModal = dynamic(() => import("../../components/Profile/ProfileUtils/ArtistBioModal"));
 const ArtistReportModal = dynamic(() => import("../../components/Profile/ProfileUtils/ArtistReportModal"));
-const FavouritesModal = dynamic(() => import("../../components/Profile/ProfileUtils/FavouritesModal"));
+const BookMarkedModal = dynamic(() => import("../../components/Profile/ProfileUtils/BookMarkedModal"));
 const FollowersModal = dynamic(() => import("../../components/Profile/ProfileUtils/FollowersModal"));
 const FollowingModal = dynamic(() => import("../../components/Profile/ProfileUtils/FollowingModal"));
 import { PARSE_APP_ID, PARSE_SERVER_URL } from "../../constants";
@@ -114,25 +114,16 @@ export default function Profile({ profileDetails }) {
 						setShowArtistBioModal={setShowArtistBioModal}
 						setShowReportModal={setShowReportModal}
 					/>
-					<Filter
-						username={username}
-						currentlyActive={currentlyActive}
-						setCurrentlyActive={setCurrentlyActive}
-						sortingFilter={sortingFilter}
-						setSortingFilter={setSortingFilter}
-						isArtist={profileDetails.isArtist}
-						setTracks={setTracks}
-						profileDetails={profileDetails}
-					/>
+					<Filter/>
 					<NFTs username={username} tracks={tracks} currentlyActive={currentlyActive} />
-					<FavouritesHeader />
-					<FavouriteNFTs username={username} favouriteTokens={favouriteTokens} />
+					<BookMarkedHeader />
+					<BookMarkedNFTs username={username} favouriteTokens={favouriteTokens} />
 				</div>
 			</div>
 
 			<ArtistBioModal isOpen={showArtistBioModal} setOpen={setShowArtistBioModal} name={profileDetails.name} bio={profileDetails.bio} />
 			<ArtistReportModal isOpen={showReportModal} setOpen={setShowReportModal} username={username} />
-			<FavouritesModal
+			<BookMarkedModal
 				isOpen={isFavouritesModalOpen}
 				setOpen={setFavouritesModalOpen}
 				username={username}

@@ -8,7 +8,7 @@ import styles from "../../../styles/Registration/Confirm.module.css";
 import B_blackhole from "../../../public/assets/registration/dark_black_hole.svg";
 import W_blackhole from "../../../public/assets/registration/white_black_hole.svg";
 import StatusContext from "../../../store/status-context";
-import ArtistEmailVerificationSuccessModal from "./RegistrationUtils/ArtistEmailVerificationSuccessModal";
+import CompanyEmailVerificationSuccessModal from "./RegistrationUtils/CompanyEmailVerificationSuccessModal";
 import InnovatorEmailVerificationSuccessModal from "./RegistrationUtils/InnovatorEmailVerificationSuccessModal";
 
 export default function Confirm() {
@@ -74,7 +74,7 @@ export default function Confirm() {
 				<div className={styles["confirm__container"]}>
 					<Image src={theme === "dark" ? W_blackhole : B_blackhole} width={440} height={318} alt="Black-hole" />
 					<span className="flex flex-col items-center justify-center pt-8">
-						<p className="text-4xl font-tertiary sm:text-5xl text-center">CONFIRM YOUR EMAIL</p>
+						<p className="text-4xl text-center font-tertiary sm:text-5xl">CONFIRM YOUR EMAIL</p>
 						<p className="font-secondary text-[15px] text-center">{user && user.attributes.email}</p>
 						<p className="font-secondary text-[15px] text-center mt-4">Please check your inbox and follow instructions in the mail to continue</p>
 						<p className="font-secondary text-[12px] text-center">You will automatically be redirected once you confirm your email</p>
@@ -116,7 +116,7 @@ export default function Confirm() {
 					</p>
 				</div>
 			</div>
-			<ArtistEmailVerificationSuccessModal isOpen={artistEmailVerificationSuccess} setOpen={setArtistEmailVerificationSuccess} />
+			<CompanyEmailVerificationSuccessModal isOpen={artistEmailVerificationSuccess} setOpen={setArtistEmailVerificationSuccess} />
 			<InnovatorEmailVerificationSuccessModal isOpen={collectorEmailVerificationSuccess} setOpen={setInnovatorEmailVerificationSuccess} />
 		</div>
 	);
