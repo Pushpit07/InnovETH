@@ -1,6 +1,8 @@
 import Head from "next/head";
 import HeroSection from "../components/HomePage/HeroSection";
 import Section2 from "../components/HomePage/Section2";
+import Section3 from "../components/HomePage/Section3";
+import Section4 from "../components/HomePage/Section4";
 import { title_main_page, meta_description } from "../constants";
 
 function Home() {
@@ -13,14 +15,9 @@ function Home() {
 			<HeroSection/>
 			<div className="px-6 md:px-8 lg:px-16 xl:px-20 2xl:px-36">
 				<Section2/>
+				<Section3/>
+				<Section4/>
 			</div>
-			{/* <div className="w-full max-w-[1920px] px-6 md:px-8 lg:px-16 xl:px-20 2xl:px-36"> */}
-				{/* <Section2/> */}
-			{/* </div> */}
-			{/* <div className="relative flex flex-col items-center w-screen h-screen bg-light-200">
-				<h1 className="mt-40 mb-4 text-5xl font-semibold text-center font-primary">InnovETH</h1>
-				<p>Innovate & Improvise</p>
-			</div> */}
 		</>
 	);
 }
