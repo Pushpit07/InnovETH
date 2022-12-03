@@ -3,45 +3,30 @@ import NFTCard from "../../layout/NFTCard/NFTCard";
 import NFTCardsWithPager from "../../layout/NFTCardsWithPager/NFTCardsWithPager";
 import NoNfts from "./NoNfts";
 
-export default function NFTs({ username, tracks, currentlyActive, isBand }) {
+export default function NFTs({ username, proposals }) {
 	const [nftCards, setNftCards] = useState([]);
 
 	useEffect(() => {
 		let tempArray = [];
 		const nftCardsTemp = [];
 
-		if (tracks.length > 0) {
-			tracks.map((track, idx) => {
-				let collaboratorList = [];
-				track.collaborators.map((collaborator) => {
-					track.collaboratorUsers.map((collaboratorUser) => {
-						collaborator.address === collaboratorUser.ethAddress && collaboratorList.push(collaboratorUser);
-					});
-				});
-
+		if (proposals.length > 0) {
+			proposals.map((proposal, idx) => {
 				tempArray.push(
 					<NFTCard
-						key={track.tokenId}
-						redirectLink={`/track/polygon/${track.tokenId}`}
-						trackId={track.trackId}
-						audio={track.audio.replace("ipfs://", process.env.NEXT_PUBLIC_IPFS_NODE_URL)}
-						trackName={track.title}
-						price={track.price}
-						artistName={track.artist}
-						artistAddress={track.artistAddress}
-						isArtistVerified={track.isArtistVerified}
-						image={track.artwork.uri.replace("ipfs://", process.env.NEXT_PUBLIC_IPFS_NODE_URL)}
-						tokenId={track.tokenId}
-						localTokenId={track.localTokenId}
-						numberOfCopies={track.numberOfCopies}
-						collaboratorList={collaboratorList}
-						otherTokensOfTrack={track.otherTokensOfTrack}
-						showNumberOfCopies={currentlyActive === "Collection" ? false : true}
-						tokenInCollectionOwnedByBandMember={isBand && currentlyActive === "Collection" ? track.bandMember.name : null}
+						key={proposal.proposalId}
+						redirectLink={`/brainstorming-corner/${proposal.proposalId}`}
+						proposalId={proposal.proposalId}
+						name={proposal.name}
+						creatorName={proposal.creator.name}
+						summary={proposal.summary}
+						image={"https://gateway.musixverse.com/ipfs/bafkreicwvbpgtdiyoj2d2tcfyd7mgrwwn46rlfrtvl4qvumv5uk7od745m" || proposal.image}
+						description={proposal.description}
+						// image={proposal.artwork.uri.replace("ipfs://", process.env.NEXT_PUBLIC_IPFS_NODE_URL)}
 					/>
 				);
 
-				if (tempArray.length % 5 == 0 || idx == tracks.length - 1) {
+				if (tempArray.length % 5 == 0 || idx == proposals.length - 1) {
 					nftCardsTemp.push(tempArray);
 					tempArray = [];
 				}
@@ -49,7 +34,7 @@ export default function NFTs({ username, tracks, currentlyActive, isBand }) {
 		}
 
 		setNftCards(nftCardsTemp);
-	}, [tracks]);
+	}, [proposals]);
 
 	return <>{nftCards.length === 0 ? <NoNfts username={username} /> : <NFTCardsWithPager nftCards={nftCards} />}</>;
 }

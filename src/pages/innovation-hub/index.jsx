@@ -29,9 +29,6 @@ const InnovationHub = ({ proposals }) => {
 			</Head>
 			<HubBanner />
 			<HubBody proposals={proposals} />
-			{/* <div className="relative flex flex-col items-center w-screen h-screen bg-light-200">
-				<h1 className="mt-40 mb-4 text-5xl font-semibold text-center font-primary">Innovation Hub</h1>
-			</div> */}
 		</>
 	);
 };

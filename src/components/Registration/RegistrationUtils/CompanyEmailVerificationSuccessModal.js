@@ -19,7 +19,7 @@ const CompanyEmailVerificationSuccessModal = ({ isOpen, setOpen }) => {
 				title={"Your email has been verified!"}
 				content={
 					<div>
-						You can now browse and explore innovations on Innovesta.
+						You can now browse and explore innovations on InnovETH.
 						<br />
 						Click the button below to go to the innovation hub.
 					</div>

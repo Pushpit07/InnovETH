@@ -141,6 +141,8 @@ export default function Settings({ userData }) {
 					router.push("/register/confirm-email");
 				}
 
+				console.log("here");
+
 				await updateUserInfo({
 					onSuccess: async (data) => {
 						setSuccess((prevState) => ({
@@ -164,7 +166,7 @@ export default function Settings({ userData }) {
 	return (
 		<>
 			<Head>
-				<title>Musixverse | Settings</title>
+				<title>InnovETH | Settings</title>
 				<meta name="description" content={meta_description} />
 				<link rel="icon" href="/favicon.ico" />
 			</Head>

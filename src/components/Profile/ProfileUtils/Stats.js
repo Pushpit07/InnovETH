@@ -9,8 +9,8 @@ export default function Stats({ username, profileDetails }) {
 	const router = useRouter();
 
 	const displayFavourites = () => {
-		if (profileDetails.isBand) router.push(`/profile/band/${username}?favourites`, undefined, { shallow: true });
-		else router.push(`/profile/${username}?favourites`, undefined, { shallow: true });
+		if (profileDetails.isBand) router.push(`/profile/band/${username}?bookmarks`, undefined, { shallow: true });
+		else router.push(`/profile/${username}?bookmarks`, undefined, { shallow: true });
 	};
 
 	const displayFollowers = () => {

@@ -19,13 +19,13 @@ const SwitchAccountSuccessModal = ({ isOpen, isArtist }) => {
 				<div>
 					{isArtist ? (
 						<>
-							You have successfully switched to an artist account. You can now create NFTs and sell them on Musixverse.
+							You have successfully switched to an artist account. You can now create NFTs and sell them on InnovETH.
 							<p className="text-[#777777] mt-1 font-normal text-xs">
 								Please note that you will only be able to create NFTs after going through the verification process.
 							</p>
 						</>
 					) : (
-						<>You have successfully switched to a collector account. You can now buy NFTs on Musixverse.</>
+						<>You have successfully switched to a collector account. You can now buy NFTs on InnovETH.</>
 					)}
 				</div>
 			}

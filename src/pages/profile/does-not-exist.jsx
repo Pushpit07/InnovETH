@@ -10,12 +10,12 @@ function DoesNotExist() {
 	return (
 		<>
 			<Head>
-				<title>Musixverse | Profile Does Not Exist</title>
+				<title>InnovETH | Profile Does Not Exist</title>
 				<meta name="description" content={meta_description} />
 			</Head>
 
 			<main className="m-auto max-w-screen-2xl md:w-11/12 px-4 md:px-20 py-24 text-center bg-light-200 dark:bg-dark-800">
-				<h1 className="md:text-6xl text-5xl font-primary font-semibold mb-2 pt-20">Musixverse</h1>
+				<h1 className="md:text-6xl text-5xl font-primary font-semibold mb-2 pt-20">InnovETH</h1>
 				<p className="md:text-md text-sm">
 					<i>Hear it. Own it. Live it.</i>
 				</p>

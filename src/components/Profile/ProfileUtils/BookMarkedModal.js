@@ -122,7 +122,7 @@ export default function BookMarkedModal({ isOpen, setOpen, username, favouriteTo
 							);
 						})
 					) : (
-						<div>No favourites to show</div>
+						<div>No bookmarks to show</div>
 					)}
 				</div>
 			}

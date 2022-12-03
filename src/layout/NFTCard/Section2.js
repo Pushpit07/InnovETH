@@ -30,31 +30,11 @@ export default function Section2({ collaboratorList, numberOfCopies, tokenId, lo
             </button> */}
 
 			{/* Collaborator Images */}
-			{localTokenId && collaboratorList ? (
+			{localTokenId ? (
 				<div className="flex items-end justify-between font-secondary text-[#1D1D1D] dark:text-light-200 text-xs">
-					<div className="flex items-end -space-x-2">
-						{collaboratorList.map((collaborator, index) => {
-							return <CollaboratorImage key={index} collaborator={collaborator} />;
-						})}
-					</div>
-					{unsoldTrackData ? (
-						<div className="flex flex-col items-end justify-end">
-							{/* <span className="dark:text-[#818181]">{numberOfCopies == 1 ? "Single Drop" : <>{numberOfCopies} copies</>}</span> */}
-							<span className="dark:text-[#818181] text-end">
-								{collaboratorList.length === 5 ? (
-									<>{unsoldTrackData.unsoldTokens_size} remaining</>
-								) : collaboratorList.length === 4 || collaboratorList.length === 3 ? (
-									<>Only {unsoldTrackData.unsoldTokens_size} remaining</>
-								) : collaboratorList.length < 3 ? (
-									<>Only {unsoldTrackData.unsoldTokens_size} remaining. Hurry!</>
-								) : null}
-							</span>
-						</div>
-					) : (
-						<span className="dark:text-[#818181]">
-							#{localTokenId} of&nbsp;{numberOfCopies}
-						</span>
-					)}
+					<div className="flex items-end -space-x-2"></div>
+
+					<span className="dark:text-[#818181]">#{localTokenId}</span>
 				</div>
 			) : (
 				<ShinyLoader classes="w-full h-4 mt-2 self-center rounded-lg" />

@@ -133,7 +133,7 @@ async function createProposal(metadataHash) {
 				},
 			],
 		});
-		throw { title: "User is not connected to the same wallet", message: "Please connect to the same wallet as your Musixverse account." };
+		throw { title: "User is not connected to the same wallet", message: "Please connect to the same wallet as your InnovETH account." };
 	}
 }
 
@@ -180,7 +180,7 @@ async function joinDiscussion(proposalId) {
 				},
 			],
 		});
-		throw { title: "User is not connected to the same wallet", message: "Please connect to the same wallet as your Musixverse account." };
+		throw { title: "User is not connected to the same wallet", message: "Please connect to the same wallet as your InnovETH account." };
 	}
 }
 

@@ -102,7 +102,7 @@ export default function HubBody({ proposals }) {
 	return (
 		<div className="flex items-center justify-center w-screen pt-20 bg-white">
 			<div className="w-full max-w-[1920px] px-6 md:px-8 lg:px-16 xl:px-20 2xl:px-36 mb-7">
-				<h1 className="font-primary font-semibold text-[96px] pl-8">What&apos;s on your mind?</h1>
+				<h1 className="font-primary font-semibold text-[64px] pl-8">What&apos;s on your mind?</h1>
 				<div className="mt-16">{cards}</div>
 			</div>
 		</div>

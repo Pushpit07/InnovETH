@@ -33,11 +33,12 @@ export async function getStaticProps(context) {
 		};
 	}
 	const profileDetails = JSON.parse(JSON.stringify(_profileDetails));
+	console.log(profileDetails);
 
 	// Passing data to the page using props
 	return {
 		props: { profileDetails },
-		revalidate: 2,
+		revalidate: 1,
 	};
 }
 
@@ -54,21 +55,18 @@ export default function Profile({ profileDetails }) {
 
 	const [showArtistBioModal, setShowArtistBioModal] = useState(false);
 	const [showReportModal, setShowReportModal] = useState(false);
-	const [currentlyActive, setCurrentlyActive] = useState(profileDetails.isArtist ? "New Releases" : "Collection");
-	// NFTs
-	const [tracks, setTracks] = useState(profileDetails.isArtist ? profileDetails.newReleases : profileDetails.collection);
-	// Sort by
-	const [sortingFilter, setSortingFilter] = useState("Newest First");
+	// Proposals
+	const [proposals, setProposals] = useState(profileDetails.proposals);
 
 	// Favourites Modal
 	const [isFavouritesModalOpen, setFavouritesModalOpen] = useState(false);
-	const [favouriteTokens, setFavouriteTokens] = useState(profileDetails.favourites);
+	const [favouriteTokens, setFavouriteTokens] = useState(profileDetails.bookmarks);
 	// Followers Modal
 	const [isFollowersModalOpen, setFollowersModalOpen] = useState(false);
 	// Following Modal
 	const [isFollowingModalOpen, setFollowingModalOpen] = useState(false);
 	useEffect(() => {
-		if (router.query && "favourites" in router.query) {
+		if (router.query && "bookmarks" in router.query) {
 			setFavouritesModalOpen(true);
 		} else if (router.query && "followers" in router.query) {
 			setFollowersModalOpen(true);
@@ -86,7 +84,7 @@ export default function Profile({ profileDetails }) {
 			{profileDetails.isArtist ? (
 				<>
 					<Head>
-						<title>Innovesta | Company</title>
+						<title>InnovETH | Company</title>
 						<meta name="description" content={meta_description} />
 						<meta name="viewport" content="initial-scale=1.0, width=device-width"></meta>
 						<meta name="og:image" content={profileDetails.avatar}></meta>
@@ -96,7 +94,7 @@ export default function Profile({ profileDetails }) {
 			) : (
 				<>
 					<Head>
-						<title>Innovesta | Innovator</title>
+						<title>InnovETH | Innovator</title>
 						<meta name="description" content={meta_description} />
 						<meta name="viewport" content="initial-scale=1.0, width=device-width"></meta>
 						<meta name="og:image" content={profileDetails.avatar}></meta>
@@ -114,8 +112,8 @@ export default function Profile({ profileDetails }) {
 						setShowArtistBioModal={setShowArtistBioModal}
 						setShowReportModal={setShowReportModal}
 					/>
-					<Filter/>
-					<NFTs username={username} tracks={tracks} currentlyActive={currentlyActive} />
+					<Filter />
+					<NFTs username={username} proposals={proposals} />
 					<BookMarkedHeader />
 					<BookMarkedNFTs username={username} favouriteTokens={favouriteTokens} />
 				</div>

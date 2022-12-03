@@ -179,7 +179,7 @@ const BandMembers = ({ bandId, username, bandMembers, updatedBandMembersList }) 
 			)}
 
 			<p className="text-xs text-[#777777] font-normal mt-6">
-				Can&apos;t find your fellow band member here? Invite them to Musixverse-&nbsp;
+				Can&apos;t find your fellow band member here? Invite them to InnovETH-&nbsp;
 				<a onClick={() => setInvitationModalOpen(true)} className="cursor-pointer text-primary-600 hover:underline">
 					Send an invite
 				</a>

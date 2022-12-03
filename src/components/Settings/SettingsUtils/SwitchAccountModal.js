@@ -52,7 +52,7 @@ const SwitchAccountModal = ({ isOpen, setOpen, isArtist }) => {
 							<>
 								Are you sure you want to switch to a collector account?
 								<p className="text-[#777777] mt-1 font-normal text-xs">
-									Please note that this will mean you getting unverified on Musixverse (if you had a verified profile previously)
+									Please note that this will mean you getting unverified on InnovETH (if you had a verified profile previously)
 								</p>
 							</>
 						) : (

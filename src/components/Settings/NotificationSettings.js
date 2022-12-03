@@ -56,8 +56,8 @@ export default function NotificationSettings({ walletAddress, userPreferences })
 			</div>
 
 			<Notification
-				heading={"Musixverse Newsletter"}
-				description={"Occasional updates from the Musixverse team"}
+				heading={"InnovETH Newsletter"}
+				description={"Occasional updates from the InnovETH team"}
 				toggleSwitch={true}
 				toggleState={newsletter}
 				setToggleState={setNewsletter}

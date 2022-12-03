@@ -7,7 +7,7 @@ export default function AccountHelpSetting() {
 	return (
 		<>
 			<Head>
-				<title>Musixverse | Settings</title>
+				<title>InnovETH | Settings</title>
 				<meta name="description" content={meta_description} />
 				<link rel="icon" href="/favicon.ico" />
 			</Head>
