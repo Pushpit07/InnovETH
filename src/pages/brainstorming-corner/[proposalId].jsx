@@ -1,11 +1,11 @@
 import Head from "next/head";
 import Moralis from "moralis/node";
 import { useMoralis } from "react-moralis";
-import { meta_description, PARSE_APP_ID, PARSE_SERVER_URL } from "../../../constants";
-import HuddleModal from "../../../components/Corner/HuddleModal";
+import { meta_description, PARSE_APP_ID, PARSE_SERVER_URL } from "../../constants";
+import HuddleModal from "../../components/Corner/HuddleModal";
 import { useState } from "react";
 import { getHuddleClient } from "@huddle01/huddle01-client";
-import Discussion from "../../../components/Corner/Discussion";
+import Discussion from "../../components/Corner/Discussion";
 
 export async function getStaticProps(context) {
 	const { proposalId } = context.params;
@@ -36,10 +36,11 @@ export function getStaticPaths() {
 	};
 }
 
-export default function TrackInfo({ proposalId, proposalDetails }) {
+export default function Proposal({ proposalId, proposalDetails }) {
 	const { user } = useMoralis();
 	const [isHuddleModalOpen, setHuddleModalOpen] = useState(false);
 	const huddleClient = getHuddleClient(process.env.NEXT_PUBLIC_HUDDLE_API_KEY);
+
 	const handleJoin = async () => {
 		setHuddleModalOpen(true);
 		try {
@@ -61,25 +62,6 @@ export default function TrackInfo({ proposalId, proposalDetails }) {
 			</Head>
 
 			<Discussion proposal={proposalDetails} handleJoin={handleJoin} />
-
-			{/* <div className="flex flex-col items-center justify-center w-full pb-20 bg-light-100 dark:bg-dark-900 pt-28">
-				<div className="w-full max-w-[1920px] px-10 sm:px-16 xl:px-20 2xl:px-36">
-					<div className="flex gap-x-8">
-						<h1 className="text-2xl fownt-medium">{proposalDetails.name}</h1>
-						<button
-							type="button"
-							onClick={async () => {
-								setHuddleModalOpen(true);
-								await handleJoin();
-							}}
-							className="px-8 py-2 rounded-full bg-primary-200 text-light-100"
-						>
-							Huddle now
-						</button>
-					</div>
-					<div className="mt-10">{proposalDetails.description}</div>
-				</div>
-			</div> */}
 
 			<HuddleModal isOpen={isHuddleModalOpen} setOpen={setHuddleModalOpen} />
 		</>

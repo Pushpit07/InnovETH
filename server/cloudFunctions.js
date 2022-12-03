@@ -1063,9 +1063,109 @@ Moralis.Cloud.define("fetchUserPreferences", async (request) => {
 	return result[0];
 });
 
+Moralis.Cloud.define("updateUserInfo", async (request) => {
+	const query = new Moralis.Query("UserInfo");
+	query.equalTo("userId", request.user.id);
+	const queryResult = await query.first();
+
+	if (queryResult) {
+		queryResult.set("avatar", request.params.avatar);
+		queryResult.set("coverImage", request.params.coverImage);
+		queryResult.set("bio", request.params.bio);
+		queryResult.set("spotify", request.params.spotify);
+		queryResult.set("instagram", request.params.instagram);
+		queryResult.set("twitter", request.params.twitter);
+		queryResult.set("facebook", request.params.facebook);
+		queryResult.set("country", request.params.country);
+		queryResult.set("state", request.params.state);
+		queryResult.set("city", request.params.city);
+
+		return queryResult.save();
+	}
+	return null;
+});
+
+Moralis.Cloud.define("updateUserPreferences", async (request) => {
+	const query = new Moralis.Query("UserPreferences");
+	query.equalTo("user", request.user);
+	const queryResult = await query.first();
+
+	if (queryResult) {
+		queryResult.set("newsletter", request.params.newsletter);
+		queryResult.set("tradeNotifications", request.params.tradeNotifications);
+
+		return queryResult.save();
+	}
+	return null;
+});
+
+Moralis.Cloud.define("switchAccountType", async (request) => {
+	if (request.user) {
+		const query = new Moralis.Query("_User", { useMasterKey: true });
+		query.equalTo("objectId", request.user.id);
+		const queryResult = await query.first({ useMasterKey: true });
+
+		if (queryResult) {
+			if (queryResult.attributes.isArtist) {
+				queryResult.set("isArtist", false);
+				queryResult.set("isArtistVerified", false);
+			} else {
+				queryResult.set("isArtist", true);
+			}
+			return queryResult.save(null, { useMasterKey: true });
+		}
+	}
+	return null;
+});
+
 Moralis.Cloud.define("fetchProposals", async (request) => {
 	const query = new Moralis.Query("ProposalCreated", { useMasterKey: true });
-	const pipeline = [];
+	const pipeline = [
+		{
+			lookup: {
+				from: "_User",
+				let: { creator: "$creator" },
+				pipeline: [
+					{ $match: { $expr: { $and: [{ $eq: ["$ethAddress", "$$creator"] }] } } },
+					{
+						$lookup: {
+							from: "UserInfo",
+							localField: "_id",
+							foreignField: "userId",
+							as: "userInfo",
+						},
+					},
+					{
+						$project: {
+							_id: 0,
+							name: 1,
+							username: 1,
+							ethAddress: 1,
+							isArtistVerified: 1,
+							avatar: { $first: "$userInfo.avatar" },
+						},
+					},
+				],
+				as: "user",
+			},
+		},
+		{
+			project: {
+				_id: 1,
+				URIHash: 1,
+				address: 1,
+				block_timestamp: 1,
+				createdAt: 1,
+				creator: 1,
+				description: 1,
+				summary: 1,
+				image: 1,
+				name: 1,
+				proposalId: 1,
+				user: { $first: "$user" },
+			},
+		},
+	];
 
 	const result = await query.aggregate(pipeline);
 	return result;
@@ -1106,6 +1206,50 @@ Moralis.Cloud.define("fetchProposalDetails", async (request) => {
 		{
 			match: {
 				proposalId: request.params.proposalId,
+			},
+		},
+		{
+			lookup: {
+				from: "_User",
+				let: { creator: "$creator" },
+				pipeline: [
+					{ $match: { $expr: { $and: [{ $eq: ["$ethAddress", "$$creator"] }] } } },
+					{
+						$lookup: {
+							from: "UserInfo",
+							localField: "_id",
+							foreignField: "userId",
+							as: "userInfo",
+						},
+					},
+					{
+						$project: {
+							_id: 0,
+							name: 1,
+							username: 1,
+							ethAddress: 1,
+							isArtistVerified: 1,
+							avatar: { $first: "$userInfo.avatar" },
+						},
+					},
+				],
+				as: "user",
+			},
+		},
+		{
+			project: {
+				_id: 1,
+				URIHash: 1,
+				address: 1,
+				block_timestamp: 1,
+				createdAt: 1,
+				creator: 1,
+				summary: 1,
+				description: 1,
+				image: 1,
+				name: 1,
+				proposalId: 1,
+				user: { $first: "$user" },
 			},
 		},
 	];
