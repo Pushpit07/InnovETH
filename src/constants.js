@@ -5,9 +5,9 @@ import InnovETHSettersFacet from "./utils/smart-contract/contracts/InnovETH/face
 /**************************************************************************/
 /**********************    SEO Meta Descriptions   ************************/
 /**************************************************************************/
-export const title_main_page = "Innovise";
+export const title_main_page = "InnovETH";
 export const meta_description =
-	"Innovise is a Music NFT marketplace that will bring Artists and Fans together like never before and unlock novel models of communications and commerce.";
+	"InnovETH is a Music NFT marketplace that will bring Artists and Fans together like never before and unlock novel models of communications and commerce.";
 export const meta_description2 = "Powering music ownership and provenance across the web and beyond";
 export const meta_description3 = "The NFT Marketplace for Musicians and Fans";
 

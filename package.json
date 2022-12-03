@@ -10,6 +10,8 @@
 	"dependencies": {
 		"@headlessui/react": "^1.6.6",
 		"@heroicons/react": "^1.0.5",
+		"@huddle01/huddle01-client": "^0.0.10",
+		"@huddle01/huddle01-iframe": "^0.0.8",
 		"@walletconnect/web3-provider": "^1.7.8",
 		"@web3auth/web3auth": "^1.1.1",
 		"axios": "^0.26.1",
