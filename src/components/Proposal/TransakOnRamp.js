@@ -20,7 +20,7 @@ export default function Proposal({ proposalId, proposalDetails }) {
 	};
 
 	return (
-		<button className="px-6 py-2 bg-[#3D0B56] text-light-100 rounded-full" onClick={() => onrampCall()}>
+		<button className="bg-[#3D0B56] px-16 py-3 text-lg text-white rounded-xl" onClick={() => onrampCall()}>
 			Get crypto and Tip
 		</button>
 	);

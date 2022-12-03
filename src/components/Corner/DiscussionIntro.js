@@ -32,19 +32,21 @@ export default function DiscussionIntro({ proposal, handleJoin }) {
 					</div>
 				</div>
 				{/* TODO: JOIN BUTTON FUNCTIONALITY */}
-				{userHasJoined ? (
-					<button
-						className="bg-[#3D0B56] px-16 py-3 text-lg text-white rounded-xl"
-						onClick={async () => {
-							await handleJoin();
-						}}
-					>
-						Huddle now
-					</button>
-				) : (
-					<button className="bg-[#3D0B56] text-lg px-16 py-3 text-white rounded-xl">Join</button>
-				)}
-				<TransakOnRamp />
+                <div className="space-x-5">
+                    {userHasJoined ? (
+                        <button
+                            className="bg-[#3D0B56] px-16 py-3 text-lg text-white rounded-xl"
+                            onClick={async () => {
+                                await handleJoin();
+                            }}
+                        >
+                            Huddle now
+                        </button>
+                    ) : (
+                        <button className="bg-[#3D0B56] text-lg px-16 py-3 text-white rounded-xl">Join</button>
+                    )}
+                    <TransakOnRamp />
+                </div>
 			</div>
 			<div className="flex flex-col pt-7 bg-[#E6D4FF] w-full max-w-[1920px] px-6 md:px-8 lg:px-16 xl:px-20 2xl:px-36">
 				<h1 className="font-semibold text-[#1D1D1D] text-4xl px-24">{proposal.name}</h1>
