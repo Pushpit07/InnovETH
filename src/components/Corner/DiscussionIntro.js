@@ -22,7 +22,7 @@ export default function DiscussionIntro({proposal, handleJoin}){
     
 
     return (
-        <div className="w-screen bg-[#E6D4FF] flex flex-col items-center justify-center pt-32 pb-7">
+        <>
             <div className="w-full max-w-[1920px] px-6 md:px-8 lg:px-16 xl:px-20 2xl:px-36 flex justify-between items-center">
                 <div className="flex items-center space-x-5">
                     <Image className="rounded-full" alt="author" width={84} height={84} src={proposal.user.avatar}/>
@@ -42,6 +42,6 @@ export default function DiscussionIntro({proposal, handleJoin}){
                 <h1 className="font-semibold text-[#1D1D1D] text-4xl px-24">{proposal.name}</h1>
                 <p className="font-medium text-xl text-[#2E2E2E] mt-5 px-24">{proposal.summary}</p>
             </div>
-        </div>
+        </>
     );
 }
