@@ -39,34 +39,34 @@ const ProtectedRoutes = ({ router, children }) => {
 		await refetchUserData();
 	}
 
-	// useEffect(() => {
-	// 	function checkPath() {
-	// 		if (isInitialized) {
-	// 			if (!isAuthenticated) {
-	// 				if (isBrowser() && pathIsProtected) {
-	// 					router.push(appRoutes.HOMEPAGE);
-	// 				}
-	// 			} else {
-	// 				// Authenticated
-	// 				refetchData();
-	// 				if (isBrowser() && !user.attributes.email) {
-	// 					if (!router.pathname.startsWith(appRoutes.REGISTER)) router.push(appRoutes.REGISTER);
-	// 				} else if (isBrowser() && pathIsProtectedForAuthenticatedUserEmailUnverified && !user.attributes.emailVerified) {
-	// 					router.push(appRoutes.CONFIRM_EMAIL);
-	// 				} else if (isBrowser() && pathIsProtectedForAuthenticatedUser) {
-	// 					router.push(appRoutes.HOMEPAGE);
-	// 				}
-	// 			}
+	useEffect(() => {
+		function checkPath() {
+			if (isInitialized) {
+				if (!isAuthenticated) {
+					if (isBrowser() && pathIsProtected) {
+						router.push(appRoutes.HOMEPAGE);
+					}
+				} else {
+					// Authenticated
+					refetchData();
+					if (isBrowser() && !user.attributes.email) {
+						if (!router.pathname.startsWith(appRoutes.REGISTER)) router.push(appRoutes.REGISTER);
+					} else if (isBrowser() && pathIsProtectedForAuthenticatedUserEmailUnverified && !user.attributes.emailVerified) {
+						router.push(appRoutes.CONFIRM_EMAIL);
+					} else if (isBrowser() && pathIsProtectedForAuthenticatedUser) {
+						router.push(appRoutes.HOMEPAGE);
+					}
+				}
 
-	// 			setLoading(false);
-	// 		}
-	// 	}
-	// 	checkPath();
-	// }, [router.pathname, isInitialized, isAuthenticated]);
+				setLoading(false);
+			}
+		}
+		checkPath();
+	}, [router.pathname, isInitialized, isAuthenticated]);
 
-	// useEffect(() => {
-	// 	if (!isWeb3Enabled && isAuthenticated) enableWeb3();
-	// }, [isWeb3Enabled, isAuthenticated, enableWeb3]);
+	useEffect(() => {
+		if (!isWeb3Enabled && isAuthenticated) enableWeb3();
+	}, [isWeb3Enabled, isAuthenticated, enableWeb3]);
 
 	return children;
 };
