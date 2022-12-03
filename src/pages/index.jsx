@@ -9,7 +9,7 @@ function Home() {
 				<meta name="description" content={meta_description} />
 			</Head>
 
-			<div className="h-screen w-screen relative flex flex-col items-center bg-light-200">
+			<div className="relative flex flex-col items-center w-screen h-screen bg-light-200">
 				<h1 className="mt-40 mb-4 text-5xl font-semibold text-center font-primary">Innovise</h1>
 				<p>Innovate & Improvise</p>
 			</div>
@@ -18,3 +18,14 @@ function Home() {
 }
 
 export default Home;
+/*
+<h1>I'm Matt, I'm a</h1>
+<div class="container">
+    <input name="checkboxes" type='radio' id="c1" checked/>
+    <input type='radio' name="checkboxes" id="c2"/>
+    <input type='radio' id="c3" name="checkboxes"/>
+  <div class="typed-out" id="check1">Web Developer1</div>
+  <div class="typed-out" id="check2">Web Developer2</div>
+  <div class="typed-out" id="check3">Web Developer3</div>
+</div>
+*/
