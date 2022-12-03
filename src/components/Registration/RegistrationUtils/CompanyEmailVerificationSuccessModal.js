@@ -2,7 +2,7 @@ import Modal from "../../../layout/Modal/Modal";
 import { useRouter } from "next/router";
 import SuccessConfetti from "../../../layout/Confetti/SuccessConfetti";
 
-const ArtistEmailVerificationSuccessModal = ({ isOpen, setOpen }) => {
+const CompanyEmailVerificationSuccessModal = ({ isOpen, setOpen }) => {
 	const router = useRouter();
 
 	return (
@@ -10,9 +10,9 @@ const ArtistEmailVerificationSuccessModal = ({ isOpen, setOpen }) => {
 			<Modal
 				isOpen={isOpen}
 				image={
-					<div className="mx-auto flex items-center relative justify-center h-24 w-24 text-6xl">
-						<label className="flex justify-center items-center w-14 h-14 border-2 rounded-full border-primary-600">
-							<i className="fa-solid fa-check text-2xl text-primary-600"></i>
+					<div className="relative flex items-center justify-center w-24 h-24 mx-auto text-6xl">
+						<label className="flex items-center justify-center border-2 rounded-full w-14 h-14 border-primary-600">
+							<i className="text-2xl fa-solid fa-check text-primary-600"></i>
 						</label>
 					</div>
 				}
@@ -54,4 +54,4 @@ const ArtistEmailVerificationSuccessModal = ({ isOpen, setOpen }) => {
 	);
 };
 
-export default ArtistEmailVerificationSuccessModal;
+export default CompanyEmailVerificationSuccessModal;

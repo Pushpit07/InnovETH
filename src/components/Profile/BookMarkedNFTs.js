@@ -3,7 +3,7 @@ import NFTCard from "../../layout/NFTCard/NFTCard";
 import NFTCardsWithPager from "../../layout/NFTCardsWithPager/NFTCardsWithPager";
 import NoNfts from "./NoNfts";
 
-export default function FavouriteNFTs({ username, favouriteTokens, isBand }) {
+export default function BookmarkedNFTs({ username, favouriteTokens, isBand }) {
 	const [nftCards, setNftCards] = useState([]);
 
 	useEffect(() => {

@@ -7,7 +7,7 @@ import Modal from "../../../layout/Modal/Modal";
 import CollaboratorImage from "../../../layout/NFTCard/CollaboratorImage";
 import LoadingContext from "../../../../store/loading-context";
 
-export default function FavouritesModal({ isOpen, setOpen, username, favouriteTokens, setFavouriteTokens, isBand }) {
+export default function BookMarkedModal({ isOpen, setOpen, username, favouriteTokens, setFavouriteTokens, isBand }) {
 	const router = useRouter();
 	const [, setLoading] = useContext(LoadingContext);
 	const { user, Moralis } = useMoralis();
@@ -32,9 +32,9 @@ export default function FavouritesModal({ isOpen, setOpen, username, favouriteTo
 		<Modal
 			isOpen={isOpen}
 			image={
-				<div className="mx-auto flex items-center relative justify-center h-24 w-24 text-6xl">
-					<label className="flex justify-center items-center w-14 h-14 border-2 rounded-full border-primary-600">
-						<i className="fa-solid fa-heart text-2xl text-primary-600"></i>
+				<div className="relative flex items-center justify-center w-24 h-24 mx-auto text-6xl">
+					<label className="flex items-center justify-center border-2 rounded-full w-14 h-14 border-primary-600">
+						<i className="text-2xl fa-solid fa-heart text-primary-600"></i>
 					</label>
 				</div>
 			}
@@ -51,9 +51,9 @@ export default function FavouritesModal({ isOpen, setOpen, username, favouriteTo
 							});
 
 							return (
-								<div key={token.tokenId} className="flex group p-2 rounded hover:bg-light-200 dark:hover:bg-dark-800">
+								<div key={token.tokenId} className="flex p-2 rounded group hover:bg-light-200 dark:hover:bg-dark-800">
 									<Link href={`/track/polygon/${token.tokenId}`} passHref>
-										<a className="w-full flex text-start cursor-pointer group">
+										<a className="flex w-full cursor-pointer text-start group">
 											<Image
 												src={token.artwork.uri.replace("ipfs://", process.env.NEXT_PUBLIC_IPFS_NODE_URL)}
 												className="rounded"
@@ -61,34 +61,34 @@ export default function FavouritesModal({ isOpen, setOpen, username, favouriteTo
 												width={60}
 												alt="NFT Artwork"
 											/>
-											<div className="w-full flex justify-between">
-												<div className="flex flex-col place-content-between relative">
+											<div className="flex justify-between w-full">
+												<div className="relative flex flex-col place-content-between">
 													<p className="ml-4 text-sm font-semibold">
 														<span className="absolute w-max">{token.title}</span>
 													</p>
-													<p className="ml-4 text-xs items-end">{token.artist}</p>
+													<p className="items-end ml-4 text-xs">{token.artist}</p>
 												</div>
 												<div className="flex items-end">
 													{!isBand ? (
-														<span className="hidden group-hover:block text-xs mr-2 text-primary-500">{token.genre}</span>
+														<span className="hidden mr-2 text-xs group-hover:block text-primary-500">{token.genre}</span>
 													) : (
 														<>
 															<div className="sm:hidden block w-[80px] md:w-[100px] relative overflow-x-hidden mr-2">
 																<div className="animate-marquee whitespace-nowrap">
-																	<span className="text-xs mr-4 text-primary-500">
-																		<i className="fa-solid fa-heart text-sm mr-1 text-primary-600"></i>
+																	<span className="mr-4 text-xs text-primary-500">
+																		<i className="mr-1 text-sm fa-solid fa-heart text-primary-600"></i>
 																		{token.bandMember.name}
 																	</span>
 																</div>
 																<div className="absolute top-0 animate-marquee2 whitespace-nowrap">
-																	<span className="text-xs mr-4 text-primary-500">
-																		<i className="fa-solid fa-heart text-sm mr-1 text-primary-600"></i>
+																	<span className="mr-4 text-xs text-primary-500">
+																		<i className="mr-1 text-sm fa-solid fa-heart text-primary-600"></i>
 																		{token.bandMember.name}
 																	</span>
 																</div>
 															</div>
-															<span className="hidden sm:block text-xs mr-4 text-primary-500">
-																<i className="fa-solid fa-heart text-sm mr-1 text-primary-600"></i>
+															<span className="hidden mr-4 text-xs sm:block text-primary-500">
+																<i className="mr-1 text-sm fa-solid fa-heart text-primary-600"></i>
 																{token.bandMember.name}
 															</span>
 														</>
@@ -109,10 +109,10 @@ export default function FavouritesModal({ isOpen, setOpen, username, favouriteTo
 										</a>
 									</Link>
 									{user && username === user.attributes.username && !isBand && (
-										<div className="hidden group-hover:block self-center pl-2">
+										<div className="self-center hidden pl-2 group-hover:block">
 											<div
 												onClick={() => removeFromFavourites(token.tokenId)}
-												className="w-8 h-8 flex justify-center items-center rounded-lg transition-all duration-200 cursor-pointer hover:bg-error-600/60"
+												className="flex items-center justify-center w-8 h-8 transition-all duration-200 rounded-lg cursor-pointer hover:bg-error-600/60"
 											>
 												<i className="fa-solid fa-xmark"></i>
 											</div>

@@ -1,7 +1,7 @@
 import { useState, useRef, useContext } from "react";
 import Link from "next/link";
 import RightSection from "./RegistrationUtils/RightSection";
-import styles from "../../../styles/Registration/Artist.module.css";
+import styles from "../../../styles/Registration/Company.module.css";
 import Button from "./RegistrationUtils/Button";
 import SelectAvatar from "./RegistrationUtils/SelectAvatar";
 import Router from "next/router";

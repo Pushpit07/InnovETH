@@ -13,25 +13,22 @@ export default function NoNfts({ username, favouritesSection = false }) {
 
 			<div className="flex flex-col items-center space-y-3">
 				{user && username === user.attributes.username ? (
-					<p className="font-secondary mb-8">You don&apos;t have any items to display</p>
+					<p className="mb-8 font-secondary">You don&apos;t have any items to display</p>
 				) : (
-					<p className="font-secondary mb-8">No items to display</p>
+					<p className="mb-8 font-secondary">No items to display</p>
 				)}
 
 				{/* If artist then render create nft other wise buy nft */}
-				{user && username === user.attributes.username && user.attributes.isArtist && !favouritesSection ? (
-					<Link href={"/create-nft"} passHref>
+				{user && username === user.attributes.username && !favouritesSection ? (
+					<Link href={"/create-post"} passHref>
 						<button className="py-2 font-medium text-center px-14 hover:bg-primary-600 bg-primary-500 rounded-3xl text-light-100">
-							Create NFTs
+							Create Proposal
 						</button>
 					</Link>
-				) : user && username === user.attributes.username && !favouritesSection ? (
-					<Link href={"/mxcatalog/new-releases"} passHref>
-						<button className="py-2 font-medium text-center px-14 hover:bg-primary-600 bg-primary-500 rounded-3xl text-light-100">Buy NFTs</button>
-					</Link>
 				) : (
-					<></>
-				)}
+						<></>
+					)
+				}
 			</div>
 		</div>
 	);
