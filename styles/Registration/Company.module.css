@@ -1,9 +1,9 @@
 .register {
-    @apply flex items-center justify-center lg:pt-24 sm:pt-32 pt-48 pb-4;
+    @apply flex items-center justify-center pt-48 pb-4 lg:pt-24 sm:pt-32;
 }
 
 .register__container {
-    @apply px-6 sm:px-responsive w-full max-w-[1920px] lg:flex lg:flex-row md:flex-col mx-3 sm:mx-4 justify-between rounded-xl bg-light-300 relative;
+    @apply px-6 sm:px-responsive w-full max-w-[1920px] lg:flex lg:flex-row md:flex-col mx-3 sm:mx-4 justify-between rounded-xl bg-[#E8E8FF] relative;
 }
 
 .register__container--left-section {

@@ -14,7 +14,7 @@ export default function Register() {
 				{/* Left section */}
 				<div className={styles["register__container--left-section"]}>
 					<p className={styles["container__left-section--intro-text"]}>LET&apos;S REVOLUTIONIZE THE INDUSTRY TOGETHER!</p>
-					<div className={styles["container__left-section--asset-image"]}>
+					{/* <div className={styles["container__left-section--asset-image"]}>
 						<Image
 							src={theme === "dark" ? illustrationLight : illustrationDark}
 							// objectFit="contain"
@@ -22,11 +22,11 @@ export default function Register() {
 							alt="music illustration"
 							priority
 						/>
-					</div>
+					</div> */}
 				</div>
 
 				{/* Right section */}
-				<div className={styles[theme === "dark" ? "register__container--right-section_B" : "register__container--right-section_W"]}>
+				<div className={styles["register__container--right-section_W"]}>
 					<CompanyOrInnovator />
 				</div>
 			</div>
