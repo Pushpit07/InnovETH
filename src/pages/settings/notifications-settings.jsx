@@ -28,7 +28,7 @@ export default function NotificationsSettings({ userPreferences }) {
 	return (
 		<>
 			<Head>
-				<title>Musixverse | Settings</title>
+				<title>InnovETH | Settings</title>
 				<meta name="description" content={meta_description} />
 				<link rel="icon" href="/favicon.ico" />
 			</Head>

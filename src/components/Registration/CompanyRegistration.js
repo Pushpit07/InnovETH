@@ -65,7 +65,7 @@ export default function BasicDetails() {
 				user: user,
 				userId: user.id,
 				avatar: avatar,
-				coverImage: "https://ipfs.moralis.io:2053/ipfs/QmSQ2s8TEKBAdZy3Pm6oy7CPDLZ7dEUQZJ89azN4a2AVUE",
+				coverImage: "https://gateway.musixverse.com/ipfs/bafkreiappa53xuqsqqqqq5cj6km726wpv2ja2f2zlcgshbtaxfrrh5a36e",
 			};
 			await saveUserInfo(userData, {
 				onSuccess: (obj) => {

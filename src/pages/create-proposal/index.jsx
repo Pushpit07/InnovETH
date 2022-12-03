@@ -17,14 +17,16 @@ export default function CreatePostPage() {
 	const [description, setDescription] = useState("");
 	const [summary, setSummary] = useState("");
 	const [, setLoading] = useContext(LoadingContext);
-	const {Moralis} = useMoralis();
+	const { Moralis } = useMoralis();
 
 	function onImageUpload(file) {
 		return new Promise((resolve) => {
 			const reader = new FileReader();
 			reader.onload = (data) => {
-				const mimeFile = convertDataURLtoFile(data.target.result, "imageFile")
-				uploadFileToIPFS(Moralis, mimeFile).then((ipfsHash)=>{resolve(ipfsHash)});
+				const mimeFile = convertDataURLtoFile(data.target.result, "imageFile");
+				uploadFileToIPFS(Moralis, mimeFile).then((ipfsHash) => {
+					resolve(ipfsHash);
+				});
 			};
 			reader.readAsDataURL(file);
 		});
@@ -41,7 +43,7 @@ export default function CreatePostPage() {
 			name: title,
 			summary: summary,
 			description: description,
-			image: "https://ipfs.moralis.io:2053/ipfs/QmetsQ5gRrGb8vgySJPB1vNeaQVBMWbqhr4MJ9THg5rFyM",
+			image: "https://gateway.musixverse.com/ipfs/bafkreicwvbpgtdiyoj2d2tcfyd7mgrwwn46rlfrtvl4qvumv5uk7od745m",
 		};
 		const blob = new Blob([JSON.stringify(obj)], { type: "application/json" });
 
@@ -60,6 +62,7 @@ export default function CreatePostPage() {
 	return (
 		<div className="flex items-center justify-center w-screen">
 			<div className="flex flex-col w-full my-32 max-w-[1920px] px-6 md:px-8 lg:px-16 xl:px-20 2xl:px-36">
+				<h1 className="pl-8 mt-8 mb-16 text-5xl text-center font-semibold font-primary">Put down your thoughts</h1>
 				<form
 					onSubmit={async (e) => {
 						e.preventDefault();
@@ -81,7 +84,7 @@ export default function CreatePostPage() {
 						></input>
 					</div>
 					<div className="flex flex-col mb-4">
-						<label className="text-lg font-medium">Proposal Summary (at least 75 words)</label>
+						<label className="text-lg font-medium">Proposal Summary (about 75 words)</label>
 						<textarea
 							value={summary}
 							onChange={(e) => setSummary(e.target.value)}
@@ -111,7 +114,7 @@ export default function CreatePostPage() {
 						}}
 					/>
 					<div className="flex justify-end w-full mt-8">
-						<button type="submit" className="px-8 py-2 text-white rounded bg-primary-200">
+						<button type="submit" className="px-8 py-2 text-white rounded bg-[#3D0B56]">
 							Submit
 						</button>
 					</div>

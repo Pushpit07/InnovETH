@@ -44,7 +44,7 @@ export default function AboutArtist({ username, name, bio, country, createdAt, s
 		}));
 	};
 
-	const sharableMessage = `Artists and Fans are collaborating on Musixverse, eliminating all the intermediaries! Where are you?\n\nJump into a new world of music fandom and be a part of the revolution!\n\nCheck out ${name}'s profile on @musixverse-\n${currentPageLink}`;
+	const sharableMessage = `Artists and Fans are collaborating on InnovETH, eliminating all the intermediaries! Where are you?\n\nJump into a new world of music fandom and be a part of the revolution!\n\nCheck out ${name}'s profile on @musixverse-\n${currentPageLink}`;
 	const uriEncodedSharableText = encodeURI(sharableMessage);
 
 	return (
@@ -155,7 +155,7 @@ export default function AboutArtist({ username, name, bio, country, createdAt, s
 								</li>
 								<li>
 									<Link
-										href={`https://www.facebook.com/dialog/share?app_id=${process.env.NEXT_PUBLIC_FACEBOOK_APP_ID}&display=popup&href=${currentPageLink}&redirect_uri=${currentPageLink}&hashtag=%23Musixverse`}
+										href={`https://www.facebook.com/dialog/share?app_id=${process.env.NEXT_PUBLIC_FACEBOOK_APP_ID}&display=popup&href=${currentPageLink}&redirect_uri=${currentPageLink}&hashtag=%23InnovETH`}
 										passHref={true}
 									>
 										<a

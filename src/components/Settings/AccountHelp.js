@@ -36,7 +36,7 @@ export default function AccountHelp() {
 						</div>
 						{user && user.attributes.isArtist && (
 							<p className="text-[#777777] mt-1 font-normal text-xs">
-								Please note that this will mean you getting unverified on Musixverse (if you had a verified profile previously)
+								Please note that this will mean you getting unverified on InnovETH (if you had a verified profile previously)
 							</p>
 						)}
 					</>
@@ -66,13 +66,13 @@ export default function AccountHelp() {
 						<Link href="/faq" passHref>
 							<a className="font-medium text-primary-500">here</a>
 						</Link>{" "}
-						to learn more about how to buy, sell, and create NFTs on Musixverse.
+						to learn more about how to buy, sell, and create NFTs on InnovETH.
 					</>
 				}
 				toggleSwitch={false}
 			/>
 			<Notification
-				heading={"Contact Musixverse"}
+				heading={"Contact InnovETH"}
 				description={
 					<>
 						Can&apos;t find the answers you’re looking for? You can submit a request{" "}
