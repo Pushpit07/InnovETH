@@ -1,13 +1,13 @@
-import { useHuddleStore } from "@huddle01/huddle01-client/hooks";
+import { useRootStore } from "@huddle01/huddle01-client";
 import React, { useCallback, useEffect, useRef } from "react";
 
 const PeerVideoAudioElem = ({ peerIdAtIndex }) => {
 	const videoRef = useRef(null);
 	const audioRef = useRef(null);
 
-	const peerCamTrack = useHuddleStore(useCallback((state) => state.peers[peerIdAtIndex]?.consumers?.cam, [peerIdAtIndex]))?.track;
+	const peerCamTrack = useRootStore(useCallback((state) => state.peers[peerIdAtIndex]?.consumers?.cam, [peerIdAtIndex]))?.track;
 
-	const peerMicTrack = useHuddleStore(useCallback((state) => state.peers[peerIdAtIndex]?.consumers?.mic, [peerIdAtIndex]))?.track;
+	const peerMicTrack = useRootStore(useCallback((state) => state.peers[peerIdAtIndex]?.consumers?.mic, [peerIdAtIndex]))?.track;
 
 	const getStream = (_track) => {
 		const stream = new MediaStream();
@@ -46,8 +46,8 @@ const PeerVideoAudioElem = ({ peerIdAtIndex }) => {
 	}, [peerMicTrack]);
 
 	return (
-		<div style={{ width: "50%", borderRadius: "8px" }}>
-			<video ref={videoRef} muted autoPlay playsInline style={{ width: "100%" }} />
+		<div style={{ width: "80%" }}>
+			<video ref={videoRef} muted autoPlay playsInline style={{ width: "100%", borderRadius: "10px" }} />
 			<audio ref={audioRef} autoPlay playsInline controls={false}></audio>
 		</div>
 	);

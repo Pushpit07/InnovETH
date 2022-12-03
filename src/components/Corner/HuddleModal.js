@@ -37,12 +37,12 @@ const HuddleModal = ({ isOpen, setOpen, name, bio }) => {
 		<Modal
 			isOpen={isOpen}
 			classes="max-w-[68rem]"
-			title={<div className="flex ml-8">About {name}</div>}
+			title={""}
 			titleClasses="justify-start text-start"
 			content={
 				<div className="text-start whitespace-pre-wrap">
-					<div>
-						{!isCamPaused && <video style={{ width: "100%", borderRadius: "10px" }} ref={videoRef} autoPlay muted></video>}
+					<div className="flex flex-col justify-center items-center">
+						{!isCamPaused && <video style={{ width: "80%", borderRadius: "10px" }} ref={videoRef} autoPlay muted></video>}
 
 						{lobbyPeers[0] && <h2>Lobby Peers</h2>}
 						<div>
@@ -51,9 +51,9 @@ const HuddleModal = ({ isOpen, setOpen, name, bio }) => {
 							))}
 						</div>
 
-						{Object.values(peers)[0] && <h2>Peers</h2>}
+						{/* {Object.values(peers)[0] && <h2>Peers</h2>} */}
 
-						<div className="peers-grid">
+						<div className="peers-grid flex gap-x-4 mt-4">
 							{Object.values(peers).map((peer) => (
 								<PeerVideoAudioElem peerIdAtIndex={peer.peerId} key={peer.peerId} />
 							))}
