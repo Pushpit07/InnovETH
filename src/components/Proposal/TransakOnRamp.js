@@ -20,12 +20,8 @@ export default function Proposal({ proposalId, proposalDetails }) {
 	};
 
 	return (
-		<div className="flex flex-col items-center justify-center w-full pb-20 bg-light-100 dark:bg-dark-900 pt-28">
-			<div className="w-full max-w-[1920px] px-10 sm:px-16 xl:px-20 2xl:px-36">
-				<button className="px-6 py-2 bg-primary-100 hover:bg-primary-200 text-light-100 rounded-full" onClick={() => onrampCall()}>
-					Get crypto and Tip
-				</button>
-			</div>
-		</div>
+		<button className="px-6 py-2 bg-[#3D0B56] text-light-100 rounded-full" onClick={() => onrampCall()}>
+			Get crypto and Tip
+		</button>
 	);
 }
