@@ -86,11 +86,11 @@ export default function HubBody({proposals}){
     const cards = [];
     for(let i = 0; i < proposals.length; i++){
         if(i === 0){
-            cards.push(<HubCard item={proposals[i]}/>)
+            cards.push(<HubCard key={"s"+i} item={proposals[i]}/>)
         }
         else{
             cards.push(
-                <div className="flex space-x-10">
+                <div key={"s"+i} className="flex space-x-10">
                     <HubCard item={proposals[i]}/>
                     {i+1 < proposals.length && <HubCard item={proposals[++i]}/>}
                 </div>

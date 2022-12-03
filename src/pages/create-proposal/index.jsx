@@ -8,17 +8,23 @@ const MdEditor = dynamic(() => import("react-markdown-editor-lite"), {
 import { Web3Storage } from "web3.storage";
 import LoadingContext from "../../../store/loading-context";
 import { createProposal } from "../../utils/smart-contract/functions";
+import uploadFileToIPFS from "../../utils/image-crop/uploadToIPFS";
+import convertDataURLtoFile from "../../utils/image-crop/convertDataURLtoFile";
+import { useMoralis } from "react-moralis";
 
 export default function CreatePostPage() {
 	const [title, setTitle] = useState("");
 	const [description, setDescription] = useState("");
+	const [summary, setSummary] = useState("");
 	const [, setLoading] = useContext(LoadingContext);
+	const {Moralis} = useMoralis();
 
 	function onImageUpload(file) {
 		return new Promise((resolve) => {
 			const reader = new FileReader();
 			reader.onload = (data) => {
-				resolve(data.target.result);
+				const mimeFile = convertDataURLtoFile(data.target.result, "imageFile")
+				uploadFileToIPFS(Moralis, mimeFile).then((ipfsHash)=>{resolve(ipfsHash)});
 			};
 			reader.readAsDataURL(file);
 		});
@@ -33,6 +39,7 @@ export default function CreatePostPage() {
 	function makeFileObjects() {
 		const obj = {
 			name: title,
+			summary: summary,
 			description: description,
 			image: "https://ipfs.moralis.io:2053/ipfs/QmetsQ5gRrGb8vgySJPB1vNeaQVBMWbqhr4MJ9THg5rFyM",
 		};
@@ -52,7 +59,7 @@ export default function CreatePostPage() {
 
 	return (
 		<div className="flex items-center justify-center w-screen">
-			<div className="flex flex-col w-full mt-32 max-w-[1920px] px-6 md:px-8 lg:px-16 xl:px-20 2xl:px-36">
+			<div className="flex flex-col w-full my-32 max-w-[1920px] px-6 md:px-8 lg:px-16 xl:px-20 2xl:px-36">
 				<form
 					onSubmit={async (e) => {
 						e.preventDefault();
@@ -69,15 +76,31 @@ export default function CreatePostPage() {
 							type="text"
 							value={title}
 							onChange={(e) => setTitle(e.target.value)}
-							className="mt-1 p-2 rounded outline-none border-2 border-light-300 focus:border-dark-200 active:border-dark-200"
+							className="p-2 mt-1 border-2 rounded outline-none border-light-300 focus:border-dark-200 active:border-dark-200"
 							required
 						></input>
 					</div>
-					<label className="mt-4 text-lg font-medium">Description</label>
+					<div className="flex flex-col mb-4">
+						<label className="text-lg font-medium">Proposal Summary (at least 75 words)</label>
+						<textarea
+							value={summary}
+							onChange={(e) => setSummary(e.target.value)}
+							className="p-2 min-h-[150px] mt-1 border-2 rounded outline-none border-light-300 focus:border-dark-200 active:border-dark-200"
+							required
+						/>
+						{/* <input
+							type="text"
+							value={description}
+							onChange={(e) => setDescription(e.target.value)}
+							className="p-2 mt-1 border-2 rounded outline-none border-light-300 focus:border-dark-200 active:border-dark-200"
+							required
+						></input> */}
+					</div>
+					<label className="mt-4 text-lg font-medium">Full Description (Supports Markdown)</label>
 					<MdEditor
 						className="mt-1"
 						style={{ height: "500px" }}
-						placeholder="Enter your markdown here"
+						placeholder="Enter your description here"
 						view={{ fullScreen: false }}
 						imageAccept=".jpg,.png,.jpeg,.svg,.hevc"
 						onImageUpload={onImageUpload}
@@ -88,7 +111,7 @@ export default function CreatePostPage() {
 						}}
 					/>
 					<div className="flex justify-end w-full mt-8">
-						<button type="submit" className="px-8 py-2 bg-primary-200 text-white rounded">
+						<button type="submit" className="px-8 py-2 text-white rounded bg-primary-200">
 							Submit
 						</button>
 					</div>
