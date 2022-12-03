@@ -96,6 +96,14 @@ const Navbar = ({}) => {
 										Innovation Hub
 									</Link>
 								</li>
+								<li className="hover:text-primary-200">
+									<Link
+										href="/create-proposal"
+										className="block py-2 pl-3 pr-4 text-gray-700 border-b border-gray-100 hover:text-primary-100 md:hover:bg-transparent md:border-0 md:p-0"
+									>
+										Create Proposal
+									</Link>
+								</li>
 							</ul>
 						</div>
 

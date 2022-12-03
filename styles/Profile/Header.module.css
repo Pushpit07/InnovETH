@@ -1,0 +1,49 @@
+.artist-banner__container {
+	@apply md:flex-row md:items-start items-center flex-col flex md:space-x-10 p-10 pt-0 md:p-10 -mt-[5%] bg-nav-light backdrop-blur-2xl backdrop-brightness-150 rounded-2xl;
+}
+
+/* Left section */
+.artist-banner__section1 {
+	@apply flex flex-col items-center justify-between h-full -mt-[90px] md:mt-0;
+}
+
+.section1__artist-image {
+	@apply xl:w-[210px] xl:h-[210px] w-[180px] h-[180px];
+}
+
+.section1__artist-image span {
+	@apply align-top rounded-full;
+}
+
+.section1__buttons {
+	@apply flex justify-center pt-3 space-x-4;
+}
+
+.section1__buttons button:first-child {
+	@apply flex-1 font-bold;
+}
+
+/* Right section */
+.artist-banner__section2 {
+	@apply w-full flex flex-col items-center justify-between md:items-start font-secondary;
+}
+
+.section2__artist-name {
+	@apply flex flex-col justify-between w-full mb-12 xl:flex-row;
+}
+
+.about_us {
+	background: -webkit-linear-gradient(#111, #eee);
+	-webkit-background-clip: text;
+	-webkit-text-fill-color: transparent;
+}
+
+.about_us_dark {
+	background: -webkit-linear-gradient(#eee, #111);
+	-webkit-background-clip: text;
+	-webkit-text-fill-color: transparent;
+}
+
+.section2__artist-footer {
+	@apply w-full mt-14 flex justify-between items-end xl:items-center text-[#818181] text-[12px] md:text-[15px] font-medium;
+}

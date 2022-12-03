@@ -1,0 +1,11 @@
+.nft-card {
+	@apply flex flex-col overflow-hidden rounded-2xl shadow-md hover:shadow-2xl duration-300 cursor-pointer w-[240px];
+}
+
+.nft-card-dark {
+	@apply flex flex-col overflow-hidden rounded-2xl hover:shadow-2xl duration-300 cursor-pointer w-[240px];
+}
+
+.nft-card__description {
+	@apply p-5 bg-light-100;
+}

@@ -1,6 +1,6 @@
 import Head from "next/head";
 import { meta_description } from "../../constants";
-import CompanyRegistration from "../../../components/Registration/CompanyRegistration";
+import CompanyRegistration from "../../components/Registration/CompanyRegistration";
 import { useEffect, useContext } from "react";
 import { useMoralis } from "react-moralis";
 import LoadingContext from "../../../store/loading-context";
@@ -23,7 +23,7 @@ const CompanyDetails = () => {
 	return (
 		<>
 			<Head>
-				<title>Innovise | Company Registration</title>
+				<title>Innovise | Project Registration</title>
 				<meta name="description" content={meta_description} />
 				<link rel="icon" href="/favicon.ico" />
 			</Head>

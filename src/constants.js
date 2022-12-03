@@ -21,3 +21,16 @@ export const defaultAvatarUrls = [
 	"https://ipfs.moralis.io:2053/ipfs/QmetsQ5gRrGb8vgySJPB1vNeaQVBMWbqhr4MJ9THg5rFyM",
 	"https://ipfs.moralis.io:2053/ipfs/QmQLG2gWQjZK8KD2cifDymfKtYfXjraGAWYAn3XMhz2UCS",
 ];
+
+/**************************************************************************/
+/********************    Report Profile Filters    ************************/
+/**************************************************************************/
+export const reportProfileFilters = [
+	"Their content is abusive and hateful",
+	"They're pretending to be me",
+	"They're pretending to be someone else",
+	"Their profile info and/or images include abusive or hateful content",
+	"Their NFTs contain explicit and sensitive content",
+	"It appears their account is hacked",
+	"Other",
+];

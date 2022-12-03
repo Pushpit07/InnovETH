@@ -102,162 +102,236 @@ html {
 ::-webkit-scrollbar-thumb:hover {
 	background: rgb(83, 194, 75);
 }
-
 /**************************************************************************/
-/**********************    Artist Verification   **************************/
+/***************************    Scrollbar   *******************************/
 /**************************************************************************/
 
-.table {
-	border-spacing: 0 15px;
+html {
+	overflow: auto !important;
+	overflow-y: scroll !important;
+	overflow-y: overlay !important;
 }
 
-i {
-	font-size: 1rem !important;
+/* Scroll bar width */
+::-webkit-scrollbar {
+	width: 4px;
+	height: 4px;
 }
 
-.table tr {
-	border-radius: 20px;
+/* Track */
+::-webkit-scrollbar-track {
+	background: transparent;
 }
 
-tr td:nth-child(1),
-tr th:nth-child(1) {
-	border-radius: 0.625rem 0 0 0.625rem;
+/* Handle */
+::-webkit-scrollbar-thumb {
+	border-radius: 50px;
+	background: rgb(83, 194, 75);
 }
 
-.artist-verification-table tr td:nth-child(n + 11),
-.artist-verification-table tr th:nth-child(n + 11) {
-	border-radius: 0 0.625rem 0.625rem 0;
-}
-
-.verified-artists-table tr td:nth-child(n + 9),
-.verified-artists-table tr th:nth-child(n + 9) {
-	border-radius: 0 0.625rem 0.625rem 0;
-}
-
-.verification-in-progress-table tr td:nth-child(n + 9),
-.verification-in-progress-table tr th:nth-child(n + 9) {
-	border-radius: 0 0.625rem 0.625rem 0;
-}
-
-.artists-not-began-verification-table tr td:nth-child(n + 4),
-.artists-not-began-verification-table tr th:nth-child(n + 4) {
-	border-radius: 0 0.625rem 0.625rem 0;
-}
-
-.nav-tabs .nav-item.show .nav-link,
-.nav-tabs .nav-link.active {
-	color: #479e00;
-	border-color: #479e00;
-}
-
-.allusers-table tr td:nth-child(n + 8),
-.allusers-table tr th:nth-child(n + 8) {
-	border-radius: 0 0.625rem 0.625rem 0;
-}
-
-.artists-table tr td:nth-child(n + 7),
-.artists-table tr th:nth-child(n + 7) {
-	border-radius: 0 0.625rem 0.625rem 0;
-}
-
-.collectors-table tr td:nth-child(n + 6),
-.collectors-table tr th:nth-child(n + 6) {
-	border-radius: 0 0.625rem 0.625rem 0;
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+	background: rgb(83, 194, 75);
 }
 
 /**************************************************************************/
-/**********************    Authentication Homepage    *********************/
+/****************************    Tooltip   ********************************/
 /**************************************************************************/
 
-.authpage-animation {
-	animation: change 8s ease-in-out infinite;
+.tooltip-button {
+	background: none;
+	font-family: "Roboto", "sans-serif";
+	color: #7a7a7a;
+	border: none;
+	padding: 0px;
+	margin: 0px;
+	/* height: fit-content !important; */
+	min-width: fit-content;
 }
 
-@keyframes change {
-	0% {
-		background-position: 0 50%;
-	}
-	50% {
-		background-position: 100% 50%;
-	}
-	100% {
-		background-position: 0 50%;
-	}
+.tooltip-button:hover {
+	background: none;
+	border: none;
+	color: #9c9c9c;
 }
 
-.authpage_animation_box_area {
+button.tooltip-button:focus,
+button.tooltip-button:active {
+	/* Removes the button outline on click */
+	outline: none !important;
+	box-shadow: none !important;
+	background: none;
+	border: none;
+	color: #7a7a7a;
+}
+
+.tooltip-button i {
+	margin-right: 5px;
+}
+
+/* Custom Tooltip */
+
+[data-tooltip] {
+	position: relative;
+}
+
+[data-tooltip]:hover {
+	z-index: 10 !important;
+}
+
+/* Positioning and visibility settings of the tooltip */
+[data-tooltip]:before,
+[data-tooltip]:after {
 	position: absolute;
-	top: 0;
-	left: 0;
-	width: 100%;
-	height: 100%;
-	overflow: hidden;
-	z-index: 2;
+	visibility: hidden;
+	opacity: 0;
+	left: 50%;
+	bottom: calc(80% + 5px); /* 5px is the size of the arrow */
+	pointer-events: none;
+	transition: 0.12s;
+	will-change: transform;
 }
 
-.authpage_animation_box_area li {
-	position: absolute;
-	display: block;
-	list-style: none;
-	width: 25px;
-	height: 25px;
-	border-radius: 50%;
-	background: linear-gradient(-30deg, #1ad6aa, #04ff92);
-	animation: boxes_animate 20s linear infinite;
-	bottom: -150px;
+/* The actual tooltip with a dynamic width */
+[data-tooltip]:before {
+	@apply dark:bg-dark-600 bg-light-100;
+	content: attr(data-tooltip);
+	padding: 10px 18px;
+	min-width: 50px;
+	max-width: 250px;
+	width: max-content;
+	width: -moz-max-content;
+	border: 1.5px solid #6cc027;
+	border-radius: 6px;
+	font-size: 14px;
+	/* background-image: linear-gradient(30deg, rgba(44, 53, 59, 0.9), rgba(48, 54, 59, 0.9), rgba(42, 56, 59, 0.9)); */
+	/* box-shadow: 0px 0px 24px rgba(0, 0, 0, 0.1); */
+	font-family: "Roboto", "sans-serif";
+	text-align: center;
+	white-space: pre-wrap;
+	transform: translate(-50%, -5px) scale(0.5);
+	@apply text-black dark:text-white;
 }
 
-.authpage_animation_box_area li:nth-child(1) {
-	left: 86%;
-	width: 80px;
-	height: 80px;
-	animation-delay: 0s;
+.sample_based_tooltip > [data-tooltip]:before {
+	max-width: 180px !important;
 }
 
-.authpage_animation_box_area li:nth-child(2) {
-	left: 12%;
-	width: 30px;
-	height: 30px;
-	animation-delay: 1.5s;
-	animation-duration: 10s;
+/* Tooltip arrow */
+[data-tooltip]:after {
+	content: "";
+	border-style: solid;
+	border-width: 5px 5px 0px 5px; /* CSS triangle */
+	border-color: #6cc027 transparent transparent transparent;
+	transition-duration: 0s; /* If the mouse leaves the element, 
+								the transition effects for the 
+								tooltip arrow are "turned off" */
+	transform-origin: top; /* Orientation setting for the
+								slide-down effect */
+	transform: translateX(-50%) scaleY(0);
 }
 
-.authpage_animation_box_area li:nth-child(3) {
-	left: 70%;
-	width: 100px;
-	height: 100px;
-	animation-delay: 5.5s;
+/* Tooltip becomes visible at hover */
+[data-tooltip]:hover:before,
+[data-tooltip]:hover:after {
+	visibility: visible;
+	opacity: 1;
 }
 
-.authpage_animation_box_area li:nth-child(4) {
-	left: 42%;
-	width: 150px;
-	height: 150px;
-	animation-delay: 0s;
-	animation-duration: 15s;
+/* Scales from 0.5 to 1 -> grow effect */
+[data-tooltip]:hover:before {
+	transition-delay: 0.1s;
+	transform: translate(-50%, -5px) scale(1);
 }
 
-.authpage_animation_box_area li:nth-child(5) {
-	left: 65%;
-	width: 40px;
-	height: 40px;
-	animation-delay: 0s;
+/* Arrow slide down effect only on mouseenter (NOT on mouseleave) */
+[data-tooltip]:hover:after {
+	transition-delay: 0.1s; /* Starting after the grow effect */
+	transition-duration: 0.1s;
+	transform: translateX(-50%) scaleY(1);
 }
 
-.authpage_animation_box_area li:nth-child(6) {
-	left: 15%;
-	width: 110px;
-	height: 110px;
-	animation-delay: 3.5s;
+/*
+	That's it for the basic tooltip.
+  
+	If you want some adjustability
+	here are some orientation settings you can use:
+*/
+
+/* LEFT */
+/* Tooltip + arrow */
+[data-tooltip-location="left"]:before,
+[data-tooltip-location="left"]:after {
+	left: auto;
+	right: calc(100% + 5px);
+	bottom: 50%;
 }
 
-@keyframes boxes_animate {
-	0% {
-		transform: translateY(0) rotate(0deg);
-		opacity: 0.7;
-	}
-	100% {
-		transform: translateY(-1000px) rotate(360deg);
-		opacity: 0;
-	}
+/* Tooltip */
+[data-tooltip-location="left"]:before {
+	transform: translate(-5px, 50%) scale(0.5);
+}
+[data-tooltip-location="left"]:hover:before {
+	transform: translate(-5px, 50%) scale(1);
+}
+
+/* Arrow */
+[data-tooltip-location="left"]:after {
+	border-width: 5px 0px 5px 5px;
+	border-color: transparent transparent transparent #6cc027;
+	transform-origin: left;
+	transform: translateY(50%) scaleX(0);
+}
+[data-tooltip-location="left"]:hover:after {
+	transform: translateY(50%) scaleX(1);
+}
+
+/* RIGHT */
+[data-tooltip-location="right"]:before,
+[data-tooltip-location="right"]:after {
+	left: calc(100% + 5px);
+	bottom: 50%;
+}
+
+[data-tooltip-location="right"]:before {
+	transform: translate(5px, 50%) scale(0.5);
+}
+[data-tooltip-location="right"]:hover:before {
+	transform: translate(5px, 50%) scale(1);
+}
+
+[data-tooltip-location="right"]:after {
+	border-width: 5px 5px 5px 0px;
+	border-color: transparent #6cc027 transparent transparent;
+	transform-origin: right;
+	transform: translateY(50%) scaleX(0);
+}
+[data-tooltip-location="right"]:hover:after {
+	transform: translateY(50%) scaleX(1);
+}
+
+/* BOTTOM */
+[data-tooltip-location="bottom"]:before,
+[data-tooltip-location="bottom"]:after {
+	top: calc(80% + 5px);
+	bottom: auto;
+}
+
+[data-tooltip-location="bottom"]:before {
+	transform: translate(-50%, 5px) scale(0.5);
+}
+[data-tooltip-location="bottom"]:hover:before {
+	transform: translate(-50%, 5px) scale(1);
+}
+
+[data-tooltip-location="bottom"]:after {
+	border-width: 0px 5px 5px 5px;
+	border-color: transparent transparent #6cc027 transparent;
+	transform-origin: bottom;
+}
+
+/* Tooltip Theme */
+
+[data-tooltip-theme="glass"]:before {
+	@apply dark:bg-dark-600/80 bg-light-100/10;
 }

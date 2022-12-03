@@ -1,0 +1,23 @@
+.menu-button {
+	@apply inline-flex items-center justify-between text-sm font-medium text-gray-700 bg-light-100 border-2 border-[#777777] w-full px-4 py-2 rounded-md hover:border-[#6cc027];
+}
+
+.countries-dropdown-menu-button {
+	@apply inline-flex items-center justify-between text-sm font-medium text-gray-700 bg-light-100 border-2 border-[#777777] w-full px-4 py-1 rounded-md hover:border-[#6cc027];
+}
+
+.menu-item-div {
+	@apply py-1 max-h-[200px] overflow-y-scroll;
+}
+/* Scroller CSS */
+.menu-item-div::-webkit-scrollbar {
+	width: 0.4em;
+}
+/* For the background of scroll bar */
+.menu-item-div::-webkit-scrollbar-track {
+	@apply my-2 rounded-full bg-none;
+}
+
+.menu-item-div::-webkit-scrollbar-thumb {
+	@apply bg-[rgba(80,80,80,0.4)] backdrop-blur-xl backdrop-brightness-105 rounded-full;
+}

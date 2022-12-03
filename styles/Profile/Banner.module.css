@@ -1,0 +1,23 @@
+
+.artist-banner__container{
+    @apply relative flex items-center justify-center max-w-[100vw] overflow-hidden h-[350px] lg:w-full -z-0 aspect-[5.48];
+    /* z-index: 0;
+    position: relative; */
+    /* width: 100%; */
+    /* height: min(42vh, 350px); */
+    /* display: flex;
+    jus */
+    /* background-image:url('../../public/Artist_banner.png');
+    
+    background-repeat:no-repeat;
+    background-size:cover;
+    background-position:center center; */
+    
+    /* 
+    object-fit: contain;
+    background-image: url('../../public/Artist_banner.png');
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+     */
+}

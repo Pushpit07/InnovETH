@@ -1,0 +1,17 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="22.423" height="20.829" viewBox="0 0 22.423 20.829">
+  <defs>
+    <style>
+      .cls-1 {
+        fill: none;
+        stroke: #1d1d1d;
+        stroke-linecap: round;
+        stroke-linejoin: round;
+        stroke-width: 2.5px;
+      }
+    </style>
+  </defs>
+  <g id="cards-svgrepo-com" transform="translate(-0.5 -1.5)">
+    <rect id="Rectangle_523" data-name="Rectangle 523" class="cls-1" width="13.149" height="18.33" transform="translate(1.75 2.75)"/>
+    <path id="Path_1810" data-name="Path 1810" class="cls-1" d="M10,3.75l6.774,3.188L10,18.892" transform="translate(4.899 0.594)"/>
+  </g>
+</svg>

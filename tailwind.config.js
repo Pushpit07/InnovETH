@@ -1,6 +1,7 @@
 module.exports = {
 	mode: "jit",
 	content: ["./src/pages/**/*.{js,ts,jsx,tsx}", "./src/components/**/*.{js,ts,jsx,tsx}", "./src/layout/**/*.{js,ts,jsx,tsx}"],
+	darkMode: "class",
 	theme: {
 		extend: {
 			animation: {
@@ -48,6 +49,10 @@ module.exports = {
 				dark: {
 					100: "#1D1D1D",
 					200: "#131313",
+					300: "#131313",
+					400: "#131313",
+					500: "#131313",
+					600: "#131313",
 				},
 				warning: {
 					100: "#FFC000",

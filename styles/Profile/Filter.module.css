@@ -1,0 +1,19 @@
+.filter-card {
+	@apply relative flex flex-col sm:flex-row sm:items-end justify-between p-6 mt-16 bg-light-300 rounded-xl;
+}
+
+.filter-card__left-section {
+	@apply flex items-start lg:w-1/2;
+}
+
+.filter-card__left-section--heading {
+	@apply font-tertiary text-4xl leading-none;
+}
+
+.filter-card__right-section {
+	@apply flex w-[260px] sm:w-auto ml-8 sm:ml-0 mt-3 sm:mt-0 items-center px-4 py-2 bg-white border-2 rounded-xl hover:border-primary-500;
+}
+
+.filter-card__right-section--sort-by {
+	@apply mt-[0.85px] text-sm font-medium text-gray-700;
+}

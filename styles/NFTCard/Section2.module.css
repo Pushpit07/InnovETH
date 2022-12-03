@@ -1,0 +1,7 @@
+.nft-card__description--section2 {
+    @apply flex flex-col justify-between mt-4;
+}
+
+.description__section2--lastprice {
+    @apply mr-2 text-sm text-right font-secondary text-[#818181];
+}

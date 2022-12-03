@@ -41,7 +41,7 @@ function App({ Component, pageProps, router }) {
 			<Script src="https://cdn.jsdelivr.net/npm/tw-elements/dist/js/index.min.js"></Script>
 
 			<MoralisProvider appId={PARSE_APP_ID} serverUrl={PARSE_SERVER_URL}>
-				<ThemeProvider attribute="class" enableSystem={false}>
+				<ThemeProvider attribute="class" enableSystem={false} forcedTheme="light" defaultTheme="light">
 					<LoadingContext.Provider value={[isLoading, setLoading]}>
 						<AuthModalContext.Provider value={[authModalOpen, setAuthModalOpen]}>
 							<StatusContext.Provider value={[error, success, setSuccess, setError]}>

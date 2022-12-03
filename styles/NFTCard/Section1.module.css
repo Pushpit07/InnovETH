@@ -1,0 +1,15 @@
+.nft-card__description--section1 {
+	@apply flex justify-between;
+}
+
+.description--section1__artistname {
+	@apply font-secondary text-xs text-[#818181] flex items-center;
+}
+
+.description--section1__trackname {
+	@apply text-sm font-semibold sm:text-lg md:text-xl font-primary text-start;
+}
+
+.description--section1__price {
+	@apply font-secondary text-xs text-right text-[#818181];
+}
