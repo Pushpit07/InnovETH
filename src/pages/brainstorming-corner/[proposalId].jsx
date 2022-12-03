@@ -1,11 +1,11 @@
 import Head from "next/head";
 import Moralis from "moralis/node";
 import { useMoralis } from "react-moralis";
-import { meta_description, PARSE_APP_ID, PARSE_SERVER_URL } from "../../../constants";
-import HuddleModal from "../../../components/Corner/HuddleModal";
+import { meta_description, PARSE_APP_ID, PARSE_SERVER_URL } from "../../constants";
+import HuddleModal from "../../components/Corner/HuddleModal";
 import { useState } from "react";
 import { getHuddleClient } from "@huddle01/huddle01-client";
-import Discussion from "../../../components/Corner/Discussion";
+import Discussion from "../../components/Corner/Discussion";
 
 export async function getStaticProps(context) {
 	const { proposalId } = context.params;
