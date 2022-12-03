@@ -60,19 +60,22 @@ const HuddleModal = ({ isOpen, setOpen, name, bio }) => {
 						</div>
 
 						<div className="card text-xs flex justify-center mt-8 gap-x-2">
-							<button onClick={() => enableStream()} className="px-6 py-3 rounded-full bg-light-300">
+							<button onClick={() => enableStream()} className="px-6 py-3 rounded-full bg-light-300 hover:bg-light-200">
 								Enable Stream
 							</button>
-							<button onClick={() => pauseTracks()} className="px-6 py-3 rounded-full bg-light-300">
+							<button onClick={() => pauseTracks()} className="px-6 py-3 rounded-full bg-light-300 hover:bg-light-200">
 								Disable Stream
 							</button>
-							<button onClick={() => huddleClient.enableWebcam()} className="px-6 py-3 rounded-full bg-light-300">
+							<button onClick={() => huddleClient.enableWebcam()} className="px-6 py-3 rounded-full bg-light-300 hover:bg-light-200">
 								Enable Webcam
 							</button>
-							<button onClick={() => huddleClient.disableWebcam()} className="px-6 py-3 rounded-full bg-light-300">
+							<button onClick={() => huddleClient.disableWebcam()} className="px-6 py-3 rounded-full bg-light-300 hover:bg-light-200">
 								Disable Webcam
 							</button>
-							<button onClick={() => huddleClient.allowAllLobbyPeersToJoinRoom()} className="px-6 py-3 rounded-full bg-light-300">
+							<button
+								onClick={() => huddleClient.allowAllLobbyPeersToJoinRoom()}
+								className="px-6 py-3 rounded-full bg-light-300 hover:bg-light-200"
+							>
 								allowAllLobbyPeersToJoinRoom()
 							</button>
 						</div>
