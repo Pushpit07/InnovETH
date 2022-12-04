@@ -8,12 +8,12 @@ export default function Section4(){
                 <GetStartCard
                     body={"Don’t bury your innovative ideas! Through “Brainstorming Corner” brainstorm with other innovators and let your ideas take flight!"}
                     ctaText="Start Innovating"
-                    ctaAction={"/"}
+                    ctaAction={"/innovation-hub"}
                 />
                 <GetStartCard
                     body={"Through “Innovation Hub” get the push start to start working on the ideas provided by Web3 companies and projects. Wanted to work on Zero Knowledge, but don’t know how? Where to start? How to research? Get help from mentors along the way."}
                     ctaText="Join Others"
-                    ctaAction={"/"}
+                    ctaAction={"/innovation-hub"}
                 />
             </div>
         </div>
