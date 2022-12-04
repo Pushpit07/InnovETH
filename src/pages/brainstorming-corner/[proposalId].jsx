@@ -61,7 +61,7 @@ export default function Proposal({ proposalId, proposalDetails }) {
 				<meta name="viewport" content="initial-scale=1.0, width=device-width"></meta>
 			</Head>
 
-			<Discussion proposal={proposalDetails} handleJoin={handleJoin} />
+			<Discussion proposal={proposalDetails} handleJoin={handleJoin} proposalId={proposalId} />
 
 			<HuddleModal isOpen={isHuddleModalOpen} setOpen={setHuddleModalOpen} />
 		</>

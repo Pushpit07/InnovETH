@@ -577,3 +577,22 @@ Moralis.Cloud.define("fetchProposalDetails", async (request) => {
 	const result = await query.aggregate(pipeline);
 	return result[0];
 });
+
+Moralis.Cloud.define("fetchUserHasJoined", async (request) => {
+	const query = new Moralis.Query("TokenMinted", { useMasterKey: true });
+	const pipeline = [
+		{
+			match: {
+				proposalId: request.params.proposalId,
+				caller: request.user.attributes.ethAddress,
+			},
+		},
+	];
+
+	const result = await query.aggregate(pipeline);
+
+	if (result[0]) {
+		return true;
+	}
+	return false;
+});

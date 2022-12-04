@@ -97,7 +97,7 @@ export default function Confirm() {
 								type="submit"
 								className="flex justify-center items-center space-x-3 bg-light-100 hover:bg-light-200 text-[14px] text-dark-600 py-2 px-6 rounded-lg mt-6 font-primary font-semibold max-w-[210px]"
 							>
-								Go to Mx Catalog
+								Go to Innovation Hub
 							</button>
 						)}
 					</form>
